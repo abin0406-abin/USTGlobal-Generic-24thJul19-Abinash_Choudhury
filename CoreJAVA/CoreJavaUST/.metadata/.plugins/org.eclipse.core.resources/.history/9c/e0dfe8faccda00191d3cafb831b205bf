@@ -1,0 +1,53 @@
+package com.dev.searching;
+
+public class Searching {
+	public static void main(String[] args) {
+		int [] arr = {5,65,55,5688};
+		System.out.println(numberSearch(arr, 55));
+	}
+	
+	public static int binarySearch(int[] arr, int key) {
+		int low = 0;
+		int high = arr.length-1;
+		while (low <= high) {
+			int mid = low+high/2;
+			if (key == arr[mid]) {
+				return mid;
+			}
+			if (key < arr[mid]) {
+				high = mid-1;
+			}
+			else {
+				low = mid+1;
+			}
+		}
+		return -1;
+	}
+	
+	//recursive way
+	public static int binarySearch(int[] arr1, int high, int low, int data) {
+		int mid = low +(high-low)/2;
+		if (low <= high) {
+			if (arr1[mid] == data ) {
+				return mid;
+			}
+			else if (arr1[mid] < data ) {
+				return binarySearch(arr1,mid+1,high,data);
+			}
+			else {
+				return binarySearch(arr1,mid-1,low,data);
+			}
+		}
+		return -1;
+	}
+	
+	public static boolean numberSearch(int[] arr, int value) {
+		
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == value) {
+				return true;
+			}
+		} 
+		return false;
+	}
+}

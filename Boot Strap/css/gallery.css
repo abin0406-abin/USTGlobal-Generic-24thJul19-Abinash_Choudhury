@@ -1,0 +1,15 @@
+body{
+    background-color: black;
+   margin-top: 7%;
+}
+img{
+    border: dashed yellow;
+    border-radius: 25%;
+    transition: all 2s;
+}
+img:hover{
+    transform: scale(1.2,1.2);
+}
+h5{
+    color: white;
+}

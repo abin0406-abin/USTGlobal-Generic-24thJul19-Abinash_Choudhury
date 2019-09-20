@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="col-md-6 offset-3 mt-4 card card-body">
+        <form action="" method="post" role="form" [formGroup]='ResisterForm' (ngSubmit)='showForm(ResisterForm)'>
+            <legend class="text-center">Resister</legend>
+            <div class="form-group">
+                <label for="uname">Username</label>
+                <input type="text" name="uname"  class="form-control" placeholder="Username"
+                    formControlName='uname'>
+                <div class="alert alert-danger" *ngIf="uname.errors && uname.invalid">
+                    <div *ngIf='uname.errors.minlength'>
+                        Username must be of 4 letters
+                    </div>
+                    <div  *ngIf='uname.errors.required'>
+                        Username cannot be blank.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email ID</label>
+                <input type="email" name="email" class="form-control" placeholder="Email ID"
+                    formControlName='email'>
+                <div class="alert alert-danger" *ngIf="email.errors && email.invalid">
+                    <div *ngIf='email.errors.email'>
+                        This field must be of email type.
+                    </div>
+                    <div *ngIf='email.errors.minlength'>
+                        Email length must be of 5.
+                    </div>
+                    <div *ngIf='email.errors.required'>
+                            Email cannot be blank.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mob">Mobile Number </label>
+                <input type="tel" name="mob"  class="form-control" placeholder="Mobile Number"
+                    formControlName='mob'>
+                <div class="alert alert-danger" *ngIf="mob.errors && mob.errors">
+                    <div *ngIf='mob.errors.minlength'>
+                        Minlength of the mobile number is 10.
+                    </div>
+                    <div *ngIf='mob.errors.maxlength'>
+                        Maxlength of the mobile number is 11.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password</label>
+                <input type="password" name="pwd"  class="form-control" placeholder="Password"
+                    formControlName='pwd'>
+                <div class="alert alert-danger" *ngIf="pwd.errors && pwd.invalid">
+                    <div *ngIf='pwd.errors.minlength'>
+                        Password length must be of 5.
+                    </div>
+                    <div *ngIf='pwd.errors.required'>
+                        Password cannot be blank
+                    </div>
+                    <div *ngIf='pwd.errors.pattern'>
+                        Password not matching
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group offset-4">
+                <button type="submit" class="btn btn-outline-primary">Submit</button>
+                <button type="Reset " class="btn btn-outline-warning">Reset</button><br>
+            </div>
+        </form>
+    </div>
+</div>

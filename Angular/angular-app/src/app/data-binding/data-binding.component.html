@@ -1,0 +1,45 @@
+<!--String Interpolation of data..It will show the value of the variable -->
+<div style="text-align: center">
+    <h1 [class] = "textClasses">{{Name}}</h1> <!--1st way of Class Binding-->
+    <h1 [class.bg-danger] = "redColor" [class.bg-success] = "!redColor">{{5+5}}</h1> <!--2nd way of Class Binding-->
+    <img [src]="imgURL" alt=""><!--By Property Binding-->
+
+                      <!-- OR -->
+
+    <!--<img src="{{imgURL}}" alt=""> <!-By String Interpolation-->
+    <p [style.background] = "paragraphStyle ? 'yellow' : 'palegreen'"[style.padding] = "padding" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, illum.</p><!--By Style Binding-->
+    
+</div>
+<div>
+        <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th [attr.colspan]="colSpan">Students</th><!--Attribute Binding-->
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Abin</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Balakrishna</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Sweta</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>BhanuPrakash</td>
+                    </tr>
+                </tbody>
+            </table>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+<!--EVENT BINDING-->
+
+
+

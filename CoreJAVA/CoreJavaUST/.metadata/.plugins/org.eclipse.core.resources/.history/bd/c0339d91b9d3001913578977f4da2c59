@@ -1,0 +1,16 @@
+package com.dev.threads;
+
+
+public class Thread6 extends Thread {
+	
+	SyncPrinter sp;
+	
+	public Thread6(SyncProvider pref) {
+		sp = pref;
+	}
+	
+	@Override
+	public void run() {
+		sp.printVal(10, "Thread 5");
+	}
+}

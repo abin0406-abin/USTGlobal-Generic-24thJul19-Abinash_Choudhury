@@ -1,0 +1,27 @@
+body{
+    width: 25%;;
+    height: 95%;
+    margin: 20px 0 0 100px;
+}
+form{
+    border: 2px solid black;
+    text-orientation: left; 
+}
+input{
+    margin: 5px;
+    text-align:left;
+}
+input[type = "checkbox"]{
+    margin-left: 7%;
+}
+input[type = "radio"]{
+    margin-left: 7%;
+}
+label{
+    padding: 7px;     
+}
+input[type = "submit"]{
+    margin-left: 30%;
+}
+
+

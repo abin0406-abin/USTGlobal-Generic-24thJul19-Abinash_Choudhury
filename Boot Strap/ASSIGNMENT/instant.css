@@ -1,0 +1,90 @@
+body{
+    background-image: linear-gradient(to right, rgb(248, 157, 157) , rgb(127, 192, 245))
+}
+.navbar{
+    width: 100%;
+    background-color:rgb(95, 1, 1);
+}
+.firstnavbar{
+    background-color: rgba(0, 0, 0, 0.863);
+}
+.navbar_brand1{
+
+    margin-left: 10%;
+    color: white;
+}
+.navbar_brand2{
+    
+    margin-left: 1%;
+    color: white;
+}
+.navbar_brand3{
+
+    margin-left: 1%;
+    color: rgb(230, 0, 134);
+}
+.navbar_brand4{
+
+    margin-left: 13%;
+}
+.navbar_brand5{
+
+    margin-left: 1%;
+    color: rgb(230, 0, 134);
+}
+.logo {
+    width: 10%;
+    height: 10%;
+    margin-left: 20%;
+    fill: orange;    
+}
+.ishift{
+    padding-top:5px; 
+    color: lemonchiffon;
+    font-family: Geneva;
+    font-size: 40px;
+    animation: ishift 0.5s ease-in-out infinite alternate;
+    
+}
+  @-webkit-keyframes ishift {   
+    from {
+        text-shadow:  0 0 50px rgb(250, 250, 168), 0 0 60px rgb(255, 255, 91), 0 0 70px yellow;
+    }
+    to {
+        text-shadow:  0 0 50px yellow, 0 0 60px rgb(255, 255, 91), 0 0 70px rgb(250, 250, 168) ;
+    }
+}
+.drop{
+    background-color: rgba(0, 0, 0, 0.747);
+    color: beige;
+    border: null;
+}
+.cltext{
+    color: lightgray;
+    font-size: 80%;
+}
+.card-link{
+    color: brown;
+    font-size: 90%;
+}
+.links{
+    color: rgb(199, 53, 0);
+}
+li{
+    list-style: square;
+    color: rgb(9, 9, 99);
+}
+.galleries{
+    padding-top: 20px;
+}
+.shift{
+    padding-top:5px; 
+    color: black;
+    font-family: Geneva;
+    font-size: 30px; 
+}
+.logo1{
+    width: 30%;
+    height: 30%;
+    margin-left: 25%;
+}

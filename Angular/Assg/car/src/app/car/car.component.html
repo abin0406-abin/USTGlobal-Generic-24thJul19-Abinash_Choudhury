@@ -1,0 +1,24 @@
+<body style=" background-color: rgb(255, 255, 166)">
+    <div class=" card card-body col-md-8 offset-2 mt-4" style="background-color: crimson">
+        <h2 class="text-center" style="color: white; font-family: cursive">Please Input the Car Details.</h2>
+        <form #userForm='ngForm' (ngSubmit)='postUser(userForm)'>
+            <input type="hidden" name="id" #id='ngModel' [(ngModel)]='firebaseService.selectedUser.id'>
+            <input type="text" name="brand" class="form-control mb-3 mt-3 text-center" #brand='ngModel'
+                [(ngModel)]='firebaseService.selectedUser.brand' placeholder="Brand"
+                style="background-color: palegreen ">
+            <input type="text" name="model" class="form-control mb-3 mt-3 text-center" #model='ngModel'
+                [(ngModel)]='firebaseService.selectedUser.model' placeholder="Model"
+                style="background-color: palegreen ">
+            <input type="date" name="yor" class="form-control mb-3 mt-3 text-center" #yor='ngModel'
+                [(ngModel)]='firebaseService.selectedUser.yor' placeholder="Year of the release"
+                style="background-color: palegreen ">
+            <input type="number" name="cost" class="form-control mb-3 mt-3 text-center" #cost='ngModel'
+                [(ngModel)]='firebaseService.selectedUser.cost' placeholder="Cost of the car"
+                style="background-color: palegreen ">
+            <input type="number" name="sold" class="form-control mb-3 mt-3 text-center" #sold='ngModel'
+                [(ngModel)]='firebaseService.selectedUser.sold' placeholder="Total units sold"
+                style="background-color: palegreen ">
+            &emsp;&emsp;<button class="btn btn-success offset-5">SUBMIT</button>
+        </form>
+    </div>
+</body>

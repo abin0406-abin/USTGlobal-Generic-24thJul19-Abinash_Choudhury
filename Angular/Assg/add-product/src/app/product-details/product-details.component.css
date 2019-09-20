@@ -1,0 +1,7 @@
+.btn:hover{
+    border: 1px solid red;
+    font-weight: bolder;
+}
+.card{
+    border: 1px solid;
+}

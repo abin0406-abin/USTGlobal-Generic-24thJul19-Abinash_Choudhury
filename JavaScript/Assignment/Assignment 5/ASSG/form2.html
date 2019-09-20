@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form2</title>
+    <link rel="stylesheet" href="form2.css">
+</head>
+
+<body>
+    <form action="validator.html">
+        <h1>Customer Details: </h1>
+        <hr>
+        <div>
+            <label for="name">Full Name </label>
+            <label for="name1">* </label><br><br>
+            <input type="text" name="fname" onkeyup="validForm()" required>
+            <input type="text" name="lname" onkeyup="validForm()" required><br>
+            <label for="fname">First Name</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
+            <label for="lname">Last Name</label>
+        </div><br>
+        <div>
+            <label for="add">Address *</label><br><br>
+            <input type="text" name="add1" onkeyup="validForm()" required><br>
+            <label for="add">Street Address</label><br><br>
+            <input type="text" name="add2" onkeyup="validForm()" required><br>
+            <label for="add">Street Address line2</label><br>
+        </div><br>
+        <div>
+            <input type="text" name="city" onkeyup="validForm()">&emsp;
+            <input type="text" name="state" onkeyup="validForm()"><br>
+
+            <label for="city">City</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="State">State/Province</label>
+        </div><br>
+        <div>
+            <input type="number" name="pin" onkeyup="validForm()">&emsp;
+            <select name="Please Select" id="country">
+                <option value="select" selected disabled>Please Select</option>
+                <option value="Ind">India</option>
+                <option value="Pak">Pakistan</option>
+                <option value="Sl">Srilanka</option>
+                <option value="Ban">Bangladesh</option>
+                <option value="Afg">Afganistan</option>
+                <option value="Ch">China</option>
+                <option value="Nep">Nepal</option>
+                <option value="Bhu">Bhutan</option>
+                <option value="Mal">Malaysia</option>
+            </select><br>
+            <label for="pin">PinCode/Postal Zip</label>&emsp;&emsp;&emsp;&emsp;
+            <label for="country">Country</label>
+        </div><br>
+        <div>
+            <input type="submit" value="Submit" name="submit" disabled>
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+    <script src="form2.js"></script>
+</body>
+
+</html>

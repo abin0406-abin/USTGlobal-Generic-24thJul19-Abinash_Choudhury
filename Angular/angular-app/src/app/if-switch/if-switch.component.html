@@ -1,0 +1,18 @@
+<!-- <input type="text" #inputElement>
+<button (click)='printInput(inputElement)'>
+    Print this Input
+</button> -->
+<h3 class="bg-primary text-center">ng-template........*ngIf</h3>
+<div *ngIf='condition; then trueBlock else falseBlock'class="text-center" ></div>
+<ng-template #trueBlock>condition is true.</ng-template>
+<ng-template #falseBlock>condition is false.</ng-template>
+<!-- *********************************************************************************************************** -->
+<h4 class="bg-primary text-center">ng-template........[ngSwitch]...(For ngSwitch we use property binding not star)</h4>
+<div [ngSwitch]='person'class="text-center">
+    <p *ngSwitchCase='"Guldu"'>CODE_G</p>
+    <p *ngSwitchCase='"Dinga"'>CODE_D</p>
+    <p *ngSwitchCase='"Sundar"'>CODE_S</p>
+    <p *ngSwitchCase='"Abin"'>CODE_A</p>
+    <p *ngSwitchDefault>DEFAULT</p>
+</div>
+

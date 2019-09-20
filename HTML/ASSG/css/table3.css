@@ -1,0 +1,5 @@
+table,th,td{
+    border: 2px solid gray;
+    width: 20%;
+    padding: 2px;
+}

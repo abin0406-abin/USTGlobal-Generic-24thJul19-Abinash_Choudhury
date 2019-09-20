@@ -1,0 +1,10 @@
+#grad{
+    height: 300px;
+    width: 50%;
+    background: linear-gradient(to right, red,yellow,cyan,blue, white);
+}
+#grad1{
+    height: 300px;
+    width: 50%;
+    background: radial-gradient(yellow, blue,cyan,rgb(52, 173, 253));
+}

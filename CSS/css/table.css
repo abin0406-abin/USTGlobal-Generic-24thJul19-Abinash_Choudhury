@@ -1,0 +1,27 @@
+table, th, td{
+    /*border: 2px solid black;
+    border-collapse: collapse;*/ /*if youwant to delete the dark line of the border*/ 
+    text-align: center;
+    padding: 6px;
+    border-radius: 50px;
+    font-family: 'Lucida Sans';
+
+}
+table{
+    width: 100%;
+    
+}
+th{
+    background-color: yellow;
+    color: darkred;
+}
+tr:nth-child(even){
+    background-color: lightskyblue;
+}
+tr:nth-child(odd){
+    background-color: palegreen;
+}
+td:hover{
+    background-color: crimson;
+    color: aliceblue;
+}

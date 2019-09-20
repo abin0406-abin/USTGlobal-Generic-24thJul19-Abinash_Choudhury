@@ -1,0 +1,1880 @@
+==============================================================================================================================================================
+								QUERIES  (DATE-07.08.2019)
+								=======================
+
+
+1. Query for Create DataBase
+-------------------------------------
+mysql> create database UST_GLOBAL
+    -> ;
+Query OK, 1 row affected (0.08 sec)
+==============================================================================================================================================================
+
+2. Query for Show the databases
+----------------------------------------
+mysql> show databases
+    -> ;
++----------------------------+
+| Database                           |
++----------------------------+
+| information_schema   |
+| mysql                                 |
+| performance_schema |
+| sys                                       |
+| ust_global                        |
++----------------------------+
+================================================================================================================================================================
+
+3.Query for use dataBase
+-------------------------------
+mysql> use ust_global;
+Database changed
+================================================================================================================================================================
+
+4.  Query for into the database
+-------------------------------------
+mysql> show tables;
+Empty set (0.03 sec)
+================================================================================================================================================================
+
+5. Query for create a table
+---------------------------------
+mysql> create table student(id int, name varchar(120), emailID varchar(150));
+Query OK, 0 rows affected (1.33 sec)
+=================================================================================================================================================================
+
+6.Query for show tables
+------------------------------
+mysql> show tables;
++---------------------------+
+| Tables_in_ust_global |
++---------------------------+
+| student             	    |
++---------------------------+
+1 row in set (0.00 sec)
+==================================================================================================================================================================
+
+7. Query for describe the column
+---------------------------------------------
+mysql> desc student;
++-----------+--------------------+------+-----+---------+-------------+
+| Field     | Type               | Null | Key | Default | Extra |
++-----------+--------------------+------+-----+---------+--------------+
+| id          | int(11)            | YES  |     | NULL    |              |
+| name    | varchar(120) | YES  |     | NULL    |              |
+| emailID | varchar(150) | YES  |     | NULL    |             |
++------------+-------------------+------+-----+---------+-------+
+3 rows in set (0.05 sec)
+====================================================================================================================================================================
+8.Query to drop the table
+-----------------------------------
+mysql> drop table student;
+Query OK, 0 rows affected (0.25 sec)
+====================================================================================================================================================================
+9.Query for drop the database
+-----------------------------------------
+mysql> drop database ust_global
+    -> ;
+Query OK, 0 rows affected (0.28 sec)
+====================================================================================================================================================================
+
+10.Query for checking the database is dropped or not
+--------------------------------------------------------------------------
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+==================================================================================================================================================================
+
+11.Create a new database
+-----------------------------------
+mysql> create database ust;
+Query OK, 1 row affected (0.00 sec)
+==================================================================================================================================================================
+
+12.Choose a database
+------------------------------
+mysql> use ust;
+Database changed
+=================================================================================================================================================================
+
+13.Query for add a column or alter
+------------------------------------------------
+mysql> alter table employee add column mobileNo int;
+Query OK, 0 rows affected (0.67 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+=================================================================================================================================================================
+
+14.Query for add a column or alter without using column
+------------------------------------------------------------------------------
+mysql> alter table employee add address varchar(120);
+Query OK, 0 rows affected (0.94 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+=================================================================================================================================================================
+
+15.Query for drop a column
+--------------------------------------
+mysql> alter table employee drop address;
+Query OK, 0 rows affected (0.61 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+=================================================================================================================================================================
+
+16.Query for renaming a column
+----------------------------------------------
+mysql> alter table employee change name EmployeeName varchar(120);
+Query OK, 0 rows affected (0.47 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+=================================================================================================================================================================
+
+17.Query for add a column with name ADDRESS
+-------------------------------------------------------------------
+mysql> alter table employee add address varchar(250);
+Query OK, 0 rows affected (0.73 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+=================================================================================================================================================================
+
+18.Check Wheather it is created or not
+-------------------------------------------------------
+mysql> desc employee;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| id           | int(11)      | YES  |     | NULL    |       |
+| EmployeeName | varchar(120) | YES  |     | NULL    |       |
+| emailID      | varchar(150) | YES  |     | NULL    |       |
+| mobileNo     | int(11)      | YES  |     | NULL    |       |
+| address      | varchar(250) | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+19.Query for rename the table name
+---------------------------------------------------
+mysql> rename table employee to trainee;
+Query OK, 0 rows affected (0.20 sec)
+=================================================================================================================================================================
+
+20.Query for insert value in table
+-----------------------------------------------
+mysql> insert into trainee(id,EmployeeName,mobileNo,address)values(001,'Abinash',943784217,'Puri');
+Query OK, 1 row affected (0.48 sec)
+=================================================================================================================================================================
+
+21.Query to check the value of table
+--------------------------------------------------
+mysql> select * from trainee;
++------+----------------------+-----------------+------------+
+| id   | EmployeeName | mobileNo  | address |
++------+-----------------------+----------------+------------+
+|    1 | Abinash              | 943784217 | Puri       |
++------+-----------------------+----------------+------------+
+1 row in set (0.00 sec)
+=================================================================================================================================================================
+
+20.Query for insert multiple value in table
+---------------------------------------------------------
+mysql> insert into trainee(id,EmployeeName,mobileNo,address)values(003,'Pratik',789654,'Cuttack'),(004,'Avi',7896225,'Berhampur'),(005,'Nikhil',48632145,'Sambalpur');
+Query OK, 3 rows affected (0.06 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+=================================================================================================================================================================
+								QUERIES  (DATE-08.08.2019)
+								=======================
+
+21.Query to update a column value of a table
+--------------------------------------------------------------
+mysql> update trainee set mobileNo = 752002;
+Query OK, 6 rows affected (0.11 sec)
+Rows matched: 6  Changed: 6  Warnings: 0
+
+mysql> select * from  trainee;
+
++------+-----------------------+---------------+--------------------+
+| id   | EmployeeName | mobileNo | address           |
++------+-----------------------+---------------+--------------------+
+|    1 | Abinash              |   752002    | Puri                 |
+|    2 | karan                  |   752002    | Bhubaneswar |
+|    3 | Pratik                  |   752002    | Cuttack           |
+|    4 | Avi                      |   752002     |  Berhampur   |
+|    5 | Nikhil                  |   752002    |   Sambalpur   |
+|    6 | Dipanwita          |   752002     | NULL              |
++------+-----------------------+----------------+-------------------+
+6 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+22.Query to delete values of a table
+-------------------------------------------------
+mysql> delete from trainee;
+Query OK, 6 rows affected (0.14 sec)
+
+OUTPUT-CHECKING
+-------------------------
+mysql> select * from  trainee;
+Empty set (0.00 sec)
+=================================================================================================================================================================
+
+23.Query for delete using truncate
+-----------------------------------------------
+mysql> truncate table trainee;
+Query OK, 0 rows affected (0.31 sec)
+
+mysql> select * from  trainee;
+Empty set (0.00 sec)
+=================================================================================================================================================================
+
+24.Query for showing particular column value from a table
+--------------------------------------------------------------------------------
+mysql> select id,EmployeeName from trainee
+    -> ;
++------+-----------------------+
+| id   | EmployeeName |
++------+-----------------------+
+|    1 | Abin                    |
+|    2 | Dipanwita           |
+|    3 | Abhijit                 |
+|    4 | Pratik                  |
+|    5 | Sambit                |
++------+-----------------------+
+5 rows in set (0.03 sec)
+=================================================================================================================================================================
+
+25.Query for showing the id and mobile for a particular name (Where Clause)
+---------------------------------------------------------------------------------------------------------
+mysql> select id,mobileNo from trainee where EmployeeName='Abin';
++------+---------------+
+| id   | mobileNo |
++------+---------------+
+|    1 |   996969    |
++------+---------------+
+1 row in set (0.06 sec)
+=================================================================================================================================================================
+
+26.Query for upadte the mobile for a particular id (Where Clause)
+---------------------------------------------------------------------------------------------------------
+mysql> update trainee set mobileNo =97997004 where id=1;
+Query OK, 1 row affected (0.16 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from trainee;
++------+--------------+----------+-------------+
+| id   | EmployeeName | mobileNo | address     |
++------+--------------+----------+-------------+
+|    1 | Abin         | 97997004 | Puri        |
+|    2 | Dipanwita    |   752002 | Bhubaneswar |
+|    3 | Abhijit      |   751030 | Berhampur   |
+|    4 | Pratik       |   560076 | Sambalpur   |
+|    5 | Sambit       |  7862635 | Cuttack     |
++------+--------------+----------+-------------+
+5 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+27.Query for create a table using constraints
+-------------------------------------------------------------
+mysql> create table city(cityName varchar(50) not null, rtoId int,cityType varchar(60),primary key(rtoId) );
+Query OK, 0 rows affected (0.48 sec)
+
+mysql> desc city;
++--------------+-----------------+--------+-----+-------------+-------+
+| Field        | Type             | Null | Key | Default | Extra |
++---------------+-----------------+-------+------+------------+-------+
+| cityName | varchar(50) | NO   |       | NULL    |         |
+| rtoId         | int(11)         | NO   | PRI | NULL    |         |
+| cityType   | varchar(60) | YES  |        | NULL    |         |
++---------------+-----------------+-------+------+-----------+-------+
+3 rows in set (0.00 sec)
+=================================================================================================================================================================
+								QUERIES  (DATE-12.08.2019)
+								=======================
+
+28.Query for change the bloodgroup column name to bg and display only name.
+--------------------------------------------------------------------------------------------------------------
+
+mysql> select id,name,BloodGroup as bg from employee_info;
++----+--------------------------------------------+------+
+| id | name                                            | bg   |
++----+--------------------------------------------+------+
+|  1 | Abinash Choudhury                   | O+ve |
+|  2 | BS Karan Kumar                         | B+ve |
+|  3 | Nikhil Ranjan Moharana            | B+ve |
+|  4 | Piyush Kumar Rout                    | O+ve |
+|  5 | Bipllab Kumar Nath                    | O-ve |
+|  6 | Aditya Prasad Das                       | A-ve |
+|  7 | Abhijit Patra                                | O+ve |
+|  8 | BN Patra                                       | A+ve |
+|  9 | Dipanwita Sahoo                         | O-ve |
+| 10 | Sambit Kumar Ray Mohapatra | A+ve |
+| 11 | Subhashre Subhasmita             | B+ve |
+| 12 | Rohit kumar Mishra                  | O+ve |
+| 13 | Soumya Ranjan Pati                  | B-ve |
+| 14 | Pratik Priyadarshi Mohanty     | B+ve |
+| 15 | Swati Smita Patra                     | O+ve |
++----+--------------------------------------------+------+
+15 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+28.Query for displaying employee name,designation and his anual salary
+---------------------------------------------------------------------------------------------------
+mysql> select name,designation,salary*12 from employee_info;
++----------------------------+--------------------+-----------+
+| name                       | designation        | salary*12 |
++----------------------------+--------------------+-----------+
+| Abinash Choudhury          | Software developer |    300000 |
+| BS Karan Kumar             | Analyst            |    420000 |
+| Nikhil Ranjan Moharana     | Testor             |    360000 |
+| Piyush Kumar Rout          | Analyst            |    336000 |
+| Bipllab Kumar Nath         | HR                 |    252000 |
+| Aditya Prasad Das          | Salesman           |    228000 |
+| Abhijit Patra              | HR                 |    384000 |
+| BN Patra                   | Software Developer |    540000 |
+| Dipanwita Sahoo            | Clerk              |    300000 |
+| Sambit Kumar Ray Mohapatra | Software Developer |    312000 |
+| Subhashre Subhasmita       | Testor             |    324000 |
+| Rohit kumar Mishra         | Clerk              |    240000 |
+| Soumya Ranjan Pati         | Software Developer |    264000 |
+| Pratik Priyadarshi Mohanty | Software Developer |    252000 |
+| Swati Smita Patra          | Clerk              |    420000 |
++----------------------------+--------------------+-----------+
+15 rows in set (0.01 sec)
+
+
+								       ============================
+							                       -: BUT FOR BETTER READABILITY:-
+								       ============================
+
+
+
+mysql> select name,designation,salary*12 AnnualSalary from employee_info;
++----------------------------+-----------------------+-------------+
+| name                         | designation        | AnnualSalary |
++----------------------------+-----------------------+-------------+
+| Abinash Choudhury          | Software developer |      300000 |
+| BS Karan Kumar             | Analyst            |      420000 |
+| Nikhil Ranjan Moharana     | Testor             |      360000 |
+| Piyush Kumar Rout          | Analyst            |      336000 |
+| Bipllab Kumar Nath         | HR                 |      252000 |
+| Aditya Prasad Das          | Salesman           |      228000 |
+| Abhijit Patra              | HR                 |      384000 |
+| BN Patra                   | Software Developer |      540000 |
+| Dipanwita Sahoo            | Clerk              |      300000 |
+| Sambit Kumar Ray Mohapatra | Software Developer |      312000 |
+| Subhashre Subhasmita       | Testor             |      324000 |
+| Rohit kumar Mishra         | Clerk              |      240000 |
+| Soumya Ranjan Pati         | Software Developer |      264000 |
+| Pratik Priyadarshi Mohanty | Software Developer |      252000 |
+| Swati Smita Patra          | Clerk              |      420000 |
++----------------------------+--------------------+-------------+
+15 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+
+29.write Query to give alias name for all the columns present in the employee_info
+------------------------------------------------------------------------------------------------------------------
+mysql> select id ID,name nm,emailId eID,designation desg,mobileNo mob,Age age,DOB birth,DOJ joinnig,Salary sal,DeptId dept,BloodGroup bg from employee_info;
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+-------+------+------+
+| ID | nm                         | eID                       | desg               | mob        | age  | birth      | joinnig    | sal   | dept | bg   |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+-------+------+------+
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 | 25000 |   10 | O+ve |
+|  2 | BS Karan Kumar             | bschhaka@gmail.com        | Analyst            | 9438870022 |   22 | 1997-05-10 | 2019-07-24 | 35000 |   20 | B+ve |
+|  3 | Nikhil Ranjan Moharana     | nikee@gmail.com           | Testor             | 9861358142 |   22 | 1997-12-20 | 2019-06-24 | 30000 |   40 | B+ve |
+|  4 | Piyush Kumar Rout          | piyush.pkr@gmail.com      | Analyst            | 9437996969 |   22 | 1997-04-20 | 2019-06-24 | 28000 |   20 | O+ve |
+|  5 | Bipllab Kumar Nath         | bipllabnath0101@gmail.com | HR                 | 8249624842 |   21 | 1998-01-02 | 2019-04-25 | 21000 |   30 | O-ve |
+|  6 | Aditya Prasad Das          | adzz6969@gmail.com        | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 | 19000 |   20 | A-ve |
+|  7 | Abhijit Patra              | abijit1998@gmail.com      | HR                 | 9845725870 |   21 | 1998-10-25 | 2019-05-31 | 32000 |   10 | O+ve |
+|  8 | BN Patra                   | bnpatra800@gmail.com      | Software Developer | 9861477800 |   24 | 1995-12-20 | 2018-06-24 | 45000 |   30 | A+ve |
+|  9 | Dipanwita Sahoo            | dipanwita.sahoo@gmail.com | Clerk              | 9493615547 |   22 | 1997-09-01 | 2019-01-24 | 25000 |   10 | O-ve |
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 | 26000 |   10 | A+ve |
+| 11 | Subhashre Subhasmita       | subhashree@gmail.com      | Testor             | 7001554780 |   22 | 1997-06-05 | 2019-05-07 | 27000 |   40 | B+ve |
+| 12 | Rohit kumar Mishra         | rohitmk@gmail.com         | Clerk              | 8249557654 |   22 | 1997-03-03 | 2019-02-27 | 20000 |   10 | O+ve |
+| 13 | Soumya Ranjan Pati         | soumyapati@gmail.com      | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 | 22000 |   20 | B-ve |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 | 21000 |   30 | B+ve |
+| 15 | Swati Smita Patra          | swatipatra@gmail.com      | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 | 35000 |   20 | O+ve |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+-------+------+------+
+15 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+
+30.write Query to display by unique deptId from employee_info table
+-----------------------------------------------------------------------------------------------
+
+mysql> select distinct DeptId from employee_info;
++-----------+
+| DeptId |
++-----------+
+|     10    |
+|     20    |
+|     40    |
+|     30    |
++----------+
+4 rows in set (0.06 sec)
+
+
+=================================================================================================================================================================
+
+31.Write a query to display unique value of designation as well as depID 
+--------------------------------------------------------------------------------------------------
+mysql> select distinct DeptId,designation from employee_info;
++--------+--------------------+
+| DeptId | designation        |
++--------+--------------------+
+|     10 | Software developer |
+|     20 | Analyst            |
+|     40 | Testor             |
+|     30 | HR                 |
+|     20 | Salesman           |
+|     10 | HR                 |
+|     30 | Software Developer |
+|     10 | Clerk              |
+|     20 | Software Developer |
+|     20 | Clerk              |
++--------+--------------------+
+10 rows in set (0.00 sec)
+
+31.Write a query to display unique deptId,designation as well as age from employee_id
+-----------------------------------------------------------------------------------------------------------------------
+mysql> select distinct DeptId,designation,age from employee_info;
++--------+--------------------+------+
+| DeptId | designation        | age  |
++--------+--------------------+------+
+|     10 | Software developer |   22 |
+|     20 | Analyst            |   22 |
+|     40 | Testor             |   22 |
+|     30 | HR                 |   21 |
+|     20 | Salesman           |   20 |
+|     10 | HR                 |   21 |
+|     30 | Software Developer |   24 |
+|     10 | Clerk              |   22 |
+|     20 | Software Developer |   21 |
+|     30 | Software Developer |   22 |
+|     20 | Clerk              |   22 |
++--------+--------------------+------+
+11 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+32.Write a query to display name,salary and salary increament by 5000
+-------------------------------------------------------------------------------------------------
+mysql> select name,salary, salary+5000 as Incremented from employee_info;
++--------------------------------------------------+-------------+-------------+
+| name                                                    | salary | Incremented |
++--------------------------------------------------+----------+-------------+
+| Abinash Choudhury                            |  25000 |       30000 |
+| BS Karan Kumar                                  |  35000 |       40000 |
+| Nikhil Ranjan Moharana                    |  30000 |       35000 |
+| Piyush Kumar Rout                             |  28000 |       33000 |
+| Bipllab Kumar Nath                            |  21000 |       26000 |
+| Aditya Prasad Das                               |  19000 |       24000 |
+| Abhijit Patra                                        |  32000 |       37000 |
+| BN Patra                                              |  45000 |       50000 |
+| Dipanwita Sahoo                                |  25000 |       30000 |
+| Sambit Kumar Ray Mohapatra         |  26000 |       31000 |
+| Subhashre Subhasmita                      |  27000 |       32000 |
+| Rohit kumar Mishra                           |  20000 |       25000 |
+| Soumya Ranjan Pati                           |  22000 |       27000 |
+| Pratik Priyadarshi Mohanty              |  21000 |       26000 |
+| Swati Smita Patra                               |  35000 |       40000 |
++--------------------------------------------------+----------+---------------+
+15 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+33.Write a query to display name,salary and salary decreament by 5000
+--------------------------------------------------------------------------------------------------
+mysql> select name,salary, salary-5000 as Decremented from employee_info;
++---------------------------------------------------+--------+-------------+
+| name                       		| salary | Decremented |
++----------------------------------------------------+--------+-------------+
+| Abinash Choudhury       		   |  25000 |       20000 |
+| BS Karan Kumar            		 |  35000 |       30000 |
+| Nikhil Ranjan Moharana   		  |  30000 |       25000 |
+| Piyush Kumar Rout         		 |  28000 |       23000 |
+| Bipllab Kumar Nath         		|  21000 |       16000 |
+| Aditya Prasad Das         		 |  19000 |       14000 |
+| Abhijit Patra              		|  32000 |       27000 |
+| BN Patra                   		|  45000 |       40000 |
+| Dipanwita Sahoo            		|  25000 |       20000 |
+| Sambit Kumar Ray Mohapatra        |  26000 |       21000 |
+| Subhashre Subhasmita       	|  27000 |       22000 |
+| Rohit kumar Mishra         		|  20000 |       15000 |
+| Soumya Ranjan Pati        		 |  22000 |       17000 |
+| Pratik Priyadarshi Mohanty 	|  21000 |       16000 |
+| Swati Smita Patra          		|  35000 |       30000 |
++--------------------------------------------------+----------+-------------+
+15 rows in set (0.03 sec)
+=================================================================================================================================================================
+
+34.Write a query to display name,salary and annual salary
+-------------------------------------------------------------------------------
+mysql> select name,salary, salary*12 as AnnualSalary from employee_info;
++----------------------------+--------+--------------+
+| name                       | salary | AnnualSalary |
++----------------------------+--------+--------------+
+| Abinash Choudhury          |  25000 |       300000 |
+| BS Karan Kumar             |  35000 |       420000 |
+| Nikhil Ranjan Moharana     |  30000 |       360000 |
+| Piyush Kumar Rout          |  28000 |       336000 |
+| Bipllab Kumar Nath         |  21000 |       252000 |
+| Aditya Prasad Das          |  19000 |       228000 |
+| Abhijit Patra              |  32000 |       384000 |
+| BN Patra                   |  45000 |       540000 |
+| Dipanwita Sahoo            |  25000 |       300000 |
+| Sambit Kumar Ray Mohapatra |  26000 |       312000 |
+| Subhashre Subhasmita       |  27000 |       324000 |
+| Rohit kumar Mishra         |  20000 |       240000 |
+| Soumya Ranjan Pati         |  22000 |       264000 |
+| Pratik Priyadarshi Mohanty |  21000 |       252000 |
+| Swati Smita Patra          |  35000 |       420000 |
++----------------------------+--------+--------------+
+15 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+35.Write a query to display name,salary and salaryperday
+-------------------------------------------------------------------------------
+mysql> select name,salary, salary/30 as SalaryPerDay from employee_info;
++----------------------------+--------+--------------------+
+| name                       | salary | SalaryPerDay       |
++----------------------------+--------+--------------------+
+| Abinash Choudhury          |  25000 |  833.3333333333334 |
+| BS Karan Kumar             |  35000 | 1166.6666666666667 |
+| Nikhil Ranjan Moharana     |  30000 |               1000 |
+| Piyush Kumar Rout          |  28000 |  933.3333333333334 |
+| Bipllab Kumar Nath         |  21000 |                700 |
+| Aditya Prasad Das          |  19000 |  633.3333333333334 |
+| Abhijit Patra              |  32000 | 1066.6666666666667 |
+| BN Patra                   |  45000 |               1500 |
+| Dipanwita Sahoo            |  25000 |  833.3333333333334 |
+| Sambit Kumar Ray Mohapatra |  26000 |  866.6666666666666 |
+| Subhashre Subhasmita       |  27000 |                900 |
+| Rohit kumar Mishra         |  20000 |  666.6666666666666 |
+| Soumya Ranjan Pati         |  22000 |  733.3333333333334 |
+| Pratik Priyadarshi Mohanty |  21000 |                700 |
+| Swati Smita Patra          |  35000 | 1166.6666666666667 |
++----------------------------+--------+--------------------+
+15 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+36.Write a query to display modulus operator
+---------------------------------------------------------------
+mysql> select 10%3 modulus;
++-------------+
+| modulus |
++-------------+
+|       	1 |
++-------------+
+1 row in set (0.00 sec)
+=================================================================================================================================================================
+
+38.Write a query to display all the records excluding deptId=10
+--------------------------------------------------------------------------------------
+
+mysql> select * from employee_info where DeptId !=10;
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name                       | emailId                   | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  2 | BS Karan Kumar             | bschhaka@gmail.com        | Analyst            | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |
+|  3 | Nikhil Ranjan Moharana     | nikee@gmail.com           | Testor             | 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40 | B+ve       |
+|  4 | Piyush Kumar Rout          | piyush.pkr@gmail.com      | Analyst            | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |
+|  5 | Bipllab Kumar Nath         | bipllabnath0101@gmail.com | HR                 | 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30 | O-ve       |
+|  6 | Aditya Prasad Das          | adzz6969@gmail.com        | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |
+|  8 | BN Patra                   | bnpatra800@gmail.com      | Software Developer | 9861477800 |   24 | 1995-12-20 | 2018-06-24 |  45000 |     30 | A+ve       |
+| 11 | Subhashre Subhasmita       | subhashree@gmail.com      | Testor             | 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40 | B+ve       |
+| 13 | Soumya Ranjan Pati         | soumyapati@gmail.com      | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30 | B+ve       |
+| 15 | Swati Smita Patra          | swatipatra@gmail.com      | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+10 rows in set (0.02 sec)
+
+=================================================================================================================================================================
+
+39.Write a query to display name, designation,mobile number, age whose salary is greter than 22000
+-----------------------------------------------------------------------------------------------------------------------------------------
+mysql> select name,designation,mobileNo from employee_info where Salary>22000;
++----------------------------+--------------------+------------+
+| name                       | designation        | mobileNo   |
++----------------------------+--------------------+------------+
+| Abinash Choudhury          | Software developer | 9437848217 |
+| BS Karan Kumar             | Analyst            | 9438870022 |
+| Nikhil Ranjan Moharana     | Testor             | 9861358142 |
+| Piyush Kumar Rout          | Analyst            | 9437996969 |
+| Abhijit Patra              | HR                 | 9845725870 |
+| BN Patra                   | Software Developer | 9861477800 |
+| Dipanwita Sahoo            | Clerk              | 9493615547 |
+| Sambit Kumar Ray Mohapatra | Software Developer | 9861554780 |
+| Subhashre Subhasmita       | Testor             | 7001554780 |
+| Swati Smita Patra          | Clerk              | 8249557688 |
++----------------------------+--------------------+------------+
+10 rows in set (0.03 sec)
+
+=================================================================================================================================================================
+
+40.Write a query to display name, designation,mobile number, age whose salary is less than 22000
+--------------------------------------------------------------------------------------------------------------------------------------
+mysql> select name,designation,mobileNo from employee_info where Salary<22000;
++----------------------------+--------------------+------------+
+| name                       | designation        | mobileNo   |
++----------------------------+--------------------+------------+
+| Bipllab Kumar Nath         | HR                 | 8249624842 |
+| Aditya Prasad Das          | Salesman           | 9861477536 |
+| Rohit kumar Mishra         | Clerk              | 8249557654 |
+| Pratik Priyadarshi Mohanty | Software Developer | 9865500870 |
++----------------------------+--------------------+------------+
+4 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+41.Write a query to display the salary less than equal to 20000
+-------------------------------------------------------------------------------------
+mysql> select salary,name from employee_info where Salary<=20000;
++--------+--------------------+
+| salary | name               |
++--------+--------------------+
+|  19000 | Aditya Prasad Das  |
+|  20000 | Rohit kumar Mishra |
++--------+--------------------+
+2 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+42.Write a query to display the salary greater than equal to 25000
+------------------------------------------------------------------------------------------
+mysql> select salary,name from employee_info where Salary>=25000;
++--------+----------------------------+
+| salary | name                       |
++--------+----------------------------+
+|  25000 | Abinash Choudhury          |
+|  35000 | BS Karan Kumar             |
+|  30000 | Nikhil Ranjan Moharana     |
+|  28000 | Piyush Kumar Rout          |
+|  32000 | Abhijit Patra              |
+|  45000 | BN Patra                   |
+|  25000 | Dipanwita Sahoo            |
+|  26000 | Sambit Kumar Ray Mohapatra |
+|  27000 | Subhashre Subhasmita       |
+|  35000 | Swati Smita Patra          |
++--------+----------------------------+
+10 rows in set (0.01 sec)
+=================================================================================================================================================================
+
+43.Write a query to display all the record who is working in DeptNo 10 only if salary is greater than 20000
+------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where DeptId=10 and salary>20000;
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name                       | emailId                   | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |
+|  7 | Abhijit Patra              | abijit1998@gmail.com      | HR                 | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |
+|  9 | Dipanwita Sahoo            | dipanwita.sahoo@gmail.com | Clerk              | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10 | A+ve       |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+4 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+44.Write a query to display all the record of employee_infotablewhois working as salesman and DOB is 1995
+----------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where designation='Salesman' and DOB='1995-01-01';
+Empty set (0.00 sec)
+
+=================================================================================================================================================================
+								QUERIES  (DATE-14.08.2019)
+								=======================
+
+45.Write a query to Display all the records of employee_info table whos salary is equals to 10k and job designation is analyst
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where designation='Analyst' and salary=10000;
+Empty set (0.09 sec)
+
+=================================================================================================================================================================
+
+46.Write a query to Display all the records of employee_info table whos salary is greater than 10k and job designation is analyst
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where designation='Analyst' and salary>10000;
++----+-------------------+----------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+| id | name              | emailId              | designation | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+-------------------+----------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+|  2 | BS Karan Kumar    | bschhaka@gmail.com   | Analyst     | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |
+|  4 | Piyush Kumar Rout | piyush.pkr@gmail.com | Analyst     | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |
++----+-------------------+----------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+2 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+47.Write a query to display all the records who is woking in dept number 20 OR dept number 60
+------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where DeptId=20 or DeptId=60;
++----+--------------------+----------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name               | emailId              | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+--------------------+----------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  2 | BS Karan Kumar     | bschhaka@gmail.com   | Analyst            | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |
+|  4 | Piyush Kumar Rout  | piyush.pkr@gmail.com | Analyst            | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |
+|  6 | Aditya Prasad Das  | adzz6969@gmail.com   | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |
+| 13 | Soumya Ranjan Pati | soumyapati@gmail.com | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |
+| 15 | Swati Smita Patra  | swatipatra@gmail.com | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |
++----+--------------------+----------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+5 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+48.Write a query to display name,salary,emailID who isworking as a testor or age is greater than 20
+---------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> select name,salary,emailId from employee_info where designation= 'Testor' or Age>20;
++----------------------------+--------+---------------------------+
+| name                       	| salary | emailId                   |
++----------------------------+--------+---------------------------+
+| Abinash Choudhury                   |  25000 | achoudhury600@gmail.com   |
+| BS Karan Kumar                         |  35000 | bschhaka@gmail.com              |
+| Nikhil Ranjan Moharana           |  30000 | nikee@gmail.com                     |
+| Piyush Kumar Rout                    |  28000 | piyush.pkr@gmail.com            |
+| Bipllab Kumar Nath                   |  21000 | bipllabnath0101@gmail.com   |
+| Abhijit Patra              	        |  32000 | abijit1998@gmail.com              |
+| BN Patra                   	       |  45000 | bnpatra800@gmail.com            |
+| Dipanwita Sahoo                       |  25000 | dipanwita.sahoo@gmail.com   |
+| Sambit Kumar Ray Mohapatra |  26000 | sambitmohapatra@gmail.com |
+| Subhashre Subhasmita             |  27000 | subhashree@gmail.com             |
+| Rohit kumar Mishra         	       |  20000 | rohitmk@gmail.com                   |
+| Soumya Ranjan Pati         	       |  22000 | soumyapati@gmail.com             |
+| Pratik Priyadarshi Mohanty     |  21000 | pratikmohanty@gmail.com       s|
+| Swati Smita Patra          	       |  35000 | swatipatra@gmail.com               |
++----------------------------+--------+---------------------------+
+14 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+49.Write a query to display the name of employee who is working as HR in dept no 30 or working as clerk where salary is greater than 10k
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 						
+						HERE AND OPERATOR IS EXECUTED FIRST  THEN OR OPERATOR
+
+mysql> select name from employee_info where designation= 'HR' and DeptId=30 or designation= 'Clerk' and Salary>10000;
++-----------------------------+
+| name               	      |
++-----------------------------+
+| Bipllab Kumar Nath  |
+| Dipanwita Sahoo      |
+| Rohit kumar Mishra |
+| Swati Smita Patra     |
++-----------------------------+
+4 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+50.Write a query to display salary = 10k and designation = software developer
+----------------------------------------------------------------------------------------------------------
+mysql> select salary,designation from employee_info where designation= 'Software Developer' and Salary=10000;
+Empty set (0.00 sec)
+
+=================================================================================================================================================================
+
+51.Write a query to displayall the records where designation is not software developer
+----------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where not designation='Software Developer';
++----+------------------------+---------------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+| id | name                   | emailId                   | designation | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+------------------------+---------------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+|  2 | BS Karan Kumar         | bschhaka@gmail.com        | Analyst     | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |
+|  3 | Nikhil Ranjan Moharana | nikee@gmail.com           | Testor      | 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40 | B+ve       |
+|  4 | Piyush Kumar Rout      | piyush.pkr@gmail.com      | Analyst     | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |
+|  5 | Bipllab Kumar Nath     | bipllabnath0101@gmail.com | HR          | 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30 | O-ve       |
+|  6 | Aditya Prasad Das      | adzz6969@gmail.com        | Salesman    | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |
+|  7 | Abhijit Patra          | abijit1998@gmail.com      | HR          | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |
+|  9 | Dipanwita Sahoo        | dipanwita.sahoo@gmail.com | Clerk       | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |
+| 11 | Subhashre Subhasmita   | subhashree@gmail.com      | Testor      | 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40 | B+ve       |
+| 12 | Rohit kumar Mishra     | rohitmk@gmail.com         | Clerk       | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       |
+| 15 | Swati Smita Patra      | swatipatra@gmail.com      | Clerk       | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |
++----+------------------------+---------------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+10 rows in set (0.05 sec)
+=================================================================================================================================================================
+
+52.Write a query to display all the employee  excluding dept no 20 or dept no 30
+---------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where not (DeptId=20 or DeptId=30);
+
++----+--------------------------------------------+------------------------------------------+----------------------------+------------------+------+----------------+-----------------+----------+--------+--------------------+
+| id | name                       		| emailId                   	      | designation              | mobileNo     | Age  | DOB          | DOJ             | Salary | DeptId | BloodGroup |
++----+--------------------------------------------+------------------------------------------+----------------------------+------------------+------+----------------+-----------------+----------+--------+--------------------+
+|  1 | Abinash Choudhury                   | achoudhury600@gmail.com     | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       	|
+|  3 | Nikhil Ranjan Moharana           | nikee@gmail.com                       | Testor                        | 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40 | B+ve       	|
+|  7 | Abhijit Patra              	               | abijit1998@gmail.com               | HR                              | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       	|
+|  9 | Dipanwita Sahoo                        | dipanwita.sahoo@gmail.com   | Clerk                          | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       	|
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10 | A+ve       	|
+| 11 | Subhashre Subhasmita              | subhashree@gmail.com            | Testor                        | 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40 | B+ve       	|
+| 12 | Rohit kumar Mishra                   | rohitmk@gmail.com                 | Clerk                           | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       	|
++----+--------------------------------------------+------------------------------------------+----------------------------+------------------+------+----------------+-----------------+----------+--------+--------------------+
+7 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+53.Write a query to display all the employee details excluding salesman who all are working in dept no 40
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> select * from employee_info where not (designation = 'Salesman' and DeptId=40);
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name                       | emailId                   | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |
+|  2 | BS Karan Kumar             | bschhaka@gmail.com        | Analyst            | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |
+|  3 | Nikhil Ranjan Moharana     | nikee@gmail.com           | Testor             | 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40 | B+ve       |
+|  4 | Piyush Kumar Rout          | piyush.pkr@gmail.com      | Analyst            | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |
+|  5 | Bipllab Kumar Nath         | bipllabnath0101@gmail.com | HR                 | 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30 | O-ve       |
+|  6 | Aditya Prasad Das          | adzz6969@gmail.com        | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |
+|  7 | Abhijit Patra              | abijit1998@gmail.com      | HR                 | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |
+|  8 | BN Patra                   | bnpatra800@gmail.com      | Software Developer | 9861477800 |   24 | 1995-12-20 | 2018-06-24 |  45000 |     30 | A+ve       |
+|  9 | Dipanwita Sahoo            | dipanwita.sahoo@gmail.com | Clerk              | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10 | A+ve       |
+| 11 | Subhashre Subhasmita       | subhashree@gmail.com      | Testor             | 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40 | B+ve       |
+| 12 | Rohit kumar Mishra         | rohitmk@gmail.com         | Clerk              | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       |
+| 13 | Soumya Ranjan Pati         | soumyapati@gmail.com      | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30 | B+ve       |
+| 15 | Swati Smita Patra          | swatipatra@gmail.com      | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+15 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+54.Write a query to  display all the employee details who is working as a salesman for dept number 20 or 30  
+----------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where designation = 'Salesman' and (DeptId=20 or DeptId=30);
++----+-------------------+--------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+| id | name              | emailId            | designation | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+-------------------+--------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+|  6 | Aditya Prasad Das | adzz6969@gmail.com | Salesman    | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |
++----+-------------------+--------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+1 row in set (0.00 sec)
+=================================================================================================================================================================
+
+55.Write a query to display all the employee who is working in dept number 20 only if there salary is greater than 10k and less than 25k including 10k and 25k
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where DeptId=20 and (Salary >=10000 and Salary<=25000);
++----+--------------------+----------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name               | emailId              | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+--------------------+----------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  6 | Aditya Prasad Das  | adzz6969@gmail.com   | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |
+| 13 | Soumya Ranjan Pati | soumyapati@gmail.com | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |
++----+--------------------+----------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+2 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+56.Write a query to  display all the records who is working as a software developer and DOB is 1997
+----------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where designation='Software Developer' and (DOB >='1997-01-01' and DOB<'1998-01-01');
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name                       | emailId                   | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10 | A+ve       |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30 | B+ve       |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+3 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+									
+									SPECIAL OPERATOR
+									=================
+										(IN)
+										===
+
+57.Write a query to display who is working department number 10 or 20 or 30
+-----------------------------------------------------------------------------------------------------------
+
+mysql> select * from employee_info where DeptId in(10,20,30);
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name                       | emailId                   | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |
+|  2 | BS Karan Kumar             | bschhaka@gmail.com        | Analyst            | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |
+|  4 | Piyush Kumar Rout          | piyush.pkr@gmail.com      | Analyst            | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |
+|  5 | Bipllab Kumar Nath         | bipllabnath0101@gmail.com | HR                 | 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30 | O-ve       |
+|  6 | Aditya Prasad Das          | adzz6969@gmail.com        | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |
+|  7 | Abhijit Patra              | abijit1998@gmail.com      | HR                 | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |
+|  8 | BN Patra                   | bnpatra800@gmail.com      | Software Developer | 9861477800 |   24 | 1995-12-20 | 2018-06-24 |  45000 |     30 | A+ve       |
+|  9 | Dipanwita Sahoo            | dipanwita.sahoo@gmail.com | Clerk              | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10 | A+ve       |
+| 12 | Rohit kumar Mishra         | rohitmk@gmail.com         | Clerk              | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       |
+| 13 | Soumya Ranjan Pati         | soumyapati@gmail.com      | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30 | B+ve       |
+| 15 | Swati Smita Patra          | swatipatra@gmail.com      | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+13 rows in set (0.05 sec)
+=================================================================================================================================================================
+
+58.Write a query to display all the employee details whose job designation is testor,hr and analyst
+--------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where designation in('Testor','HR','Analyst');
++----+------------------------+---------------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+| id | name                   | emailId                   | designation | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+------------------------+---------------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+|  2 | BS Karan Kumar         | bschhaka@gmail.com        | Analyst     | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |
+|  3 | Nikhil Ranjan Moharana | nikee@gmail.com           | Testor      | 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40 | B+ve       |
+|  4 | Piyush Kumar Rout      | piyush.pkr@gmail.com      | Analyst     | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |
+|  5 | Bipllab Kumar Nath     | bipllabnath0101@gmail.com | HR          | 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30 | O-ve       |
+|  7 | Abhijit Patra          | abijit1998@gmail.com      | HR          | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |
+| 11 | Subhashre Subhasmita   | subhashree@gmail.com      | Testor      | 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40 | B+ve       |
++----+------------------------+---------------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+6 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+59.Write a query to display all the employee details who are working as a clerk in dept 20,30,40,60,70
+-------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where designation='Clerk' and DeptId in(10,20,30,40,60,70);
++----+--------------------+---------------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+| id | name               | emailId                   | designation | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+--------------------+---------------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+|  9 | Dipanwita Sahoo    | dipanwita.sahoo@gmail.com | Clerk       | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |
+| 12 | Rohit kumar Mishra | rohitmk@gmail.com         | Clerk       | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       |
+| 15 | Swati Smita Patra  | swatipatra@gmail.com      | Clerk       | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |
++----+--------------------+---------------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+3 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+60.Write a query to  display  all the employee details excluding who are working as a clerk in dept 20,30,40,60,70
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where designation='Clerk' and DeptId not in(20,30,40,60,70);
++----+--------------------+---------------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+| id | name               | emailId                   | designation | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+--------------------+---------------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+|  9 | Dipanwita Sahoo    | dipanwita.sahoo@gmail.com | Clerk       | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |
+| 12 | Rohit kumar Mishra | rohitmk@gmail.com         | Clerk       | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       |
++----+--------------------+---------------------------+-------------+------------+------+------------+------------+--------+--------+------------+
+2 rows in set (0.00 sec)
+
+
+=================================================================================================================================================================
+
+61.Write a query to display all  the details of employee who ae working in department 20,40,60 excluding the salesman or analyst
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where DeptId in(20,40,60) and designation not in('Salesman','Analyst');
++----+------------------------+----------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name                   | emailId              | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+------------------------+----------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  3 | Nikhil Ranjan Moharana | nikee@gmail.com      | Testor             | 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40 | B+ve       |
+| 11 | Subhashre Subhasmita   | subhashree@gmail.com | Testor             | 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40 | B+ve       |
+| 13 | Soumya Ranjan Pati     | soumyapati@gmail.com | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |
+| 15 | Swati Smita Patra      | swatipatra@gmail.com | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |
++----+------------------------+----------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+4 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+										BETWEEN
+										========	
+
+62.Write a query to display all the details of employee whose salary is in the range of 20000 to 25000.
+------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where Salary between 20000 and 25000;
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name                       | emailId                   | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |
+|  5 | Bipllab Kumar Nath         | bipllabnath0101@gmail.com | HR                 | 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30 | O-ve       |
+|  9 | Dipanwita Sahoo            | dipanwita.sahoo@gmail.com | Clerk              | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |
+| 12 | Rohit kumar Mishra         | rohitmk@gmail.com         | Clerk              | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       |
+| 13 | Soumya Ranjan Pati         | soumyapati@gmail.com      | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30 | B+ve       |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+6 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+63.Write a query to display all the details of employee whose DOJ is in 2017
+-------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where DOJ between '2017-01-01' and '2017-12-31';
+Empty set (0.00 sec)
+=================================================================================================================================================================
+
+64.Write a query to display  all the details of employee excluding whose DOJ is in 2019
+----------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where DOJ not between '2019-01-01' and '2019-12-31';
++----+--------------------+----------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name               | emailId              | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+--------------------+----------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  8 | BN Patra           | bnpatra800@gmail.com | Software Developer | 9861477800 |   24 | 1995-12-20 | 2018-06-24 |  45000 |     30 | A+ve       |
+| 13 | Soumya Ranjan Pati | soumyapati@gmail.com | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |
+| 15 | Swati Smita Patra  | swatipatra@gmail.com | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |
++----+--------------------+----------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+3 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+65.Write a query to display employee name ,salary and deptID of all employee who is working in deptID. 10 or 20 excluding employee whose salary is greater than or equal to 15k and
+     less than equal to 30k .
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select name,Salary,DeptId from employee_info where DeptId in(10,20) and Salary not between 15000 and 30000;
+
++-------------------+--------+--------+
+| name              | Salary | DeptId |
++-------------------+--------+--------+
+| BS Karan Kumar    |  35000 |     20 |
+| Abhijit Patra     |  32000 |     10 |
+| Swati Smita Patra |  35000 |     20 |
++-------------------+--------+--------+
+3 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+66.Write a query to display employee name and annual salary if designation is null
+-----------------------------------------------------------------------------------------------------------------
+mysql> select name, Salary*12 as AnnualSalary from employee_info where designation is null;
++---------+--------------+
+| name    | AnnualSalary |
++---------+--------------+
+| Somnath |         NULL |
++---------+--------------+
+1 row in set (0.00 sec)
+=================================================================================================================================================================
+										IS
+										==
+67.Write a query to display employee name and annual salary if designation is not null.
+----------------------------------------------------------------------------------------------------------------------
+mysql> select name, Salary*12 as AnnualSalary from employee_info where designation is not null;
++----------------------------+--------------+
+| name                       | AnnualSalary |
++----------------------------+--------------+
+| Abinash Choudhury          |       300000 |
+| BS Karan Kumar             |       420000 |
+| Nikhil Ranjan Moharana     |       360000 |
+| Piyush Kumar Rout          |       336000 |
+| Bipllab Kumar Nath         |       252000 |
+| Aditya Prasad Das          |       228000 |
+| Abhijit Patra              |       384000 |
+| BN Patra                   |       540000 |
+| Dipanwita Sahoo            |       300000 |
+| Sambit Kumar Ray Mohapatra |       312000 |
+| Subhashre Subhasmita       |       324000 |
+| Rohit kumar Mishra         |       240000 |
+| Soumya Ranjan Pati         |       264000 |
+| Pratik Priyadarshi Mohanty |       252000 |
+| Swati Smita Patra          |       420000 |
++----------------------------+--------------+
+15 rows in set (0.00 sec)
+=================================================================================================================================================================
+										LIKE
+										====	
+68.Write a query to display  all the details of employee, whose name is starting with 'S'. 
+-----------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where name like 's%';
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name                       | emailId                   | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10 | A+ve       |
+| 11 | Subhashre Subhasmita       | subhashree@gmail.com      | Testor             | 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40 | B+ve       |
+| 13 | Soumya Ranjan Pati         | soumyapati@gmail.com      | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |
+| 15 | Swati Smita Patra          | swatipatra@gmail.com      | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |
+| 16 | Somnath                    | NULL                      | NULL               | NULL       |   22 | 1997-06-23 | NULL       |   NULL |     40 | NULL       |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+5 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+69.Write a query to display all the details of employee whose name contains only 7 character
+-------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where name like '_______';
++----+---------+---------+-------------+----------+------+------------+------+--------+--------+------------+
+| id | name    | emailId | designation | mobileNo | Age  | DOB        | DOJ  | Salary | DeptId | BloodGroup |
++----+---------+---------+-------------+----------+------+------------+------+--------+--------+------------+
+| 16 | Somnath | NULL    | NULL        | NULL     |   22 | 1997-06-23 | NULL |   NULL |     40 | NULL       |
++----+---------+---------+-------------+----------+------+------------+------+--------+--------+------------+
+1 row in set (0.00 sec)
+=================================================================================================================================================================
+
+70.Write a query to display name, salary,DOB,DOJ,age whose name starts with S and end with S
+----------------------------------------------------------------------------------------------------------------------------------
+mysql> select name,Salary,DOB,DOJ,Age from employee_info where name like 'S%S';
+Empty set (0.00 sec)
+
+=================================================================================================================================================================
+
+71.Write a query to display all the record of employee whose second character is B
+-----------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where name like '_B%';
++----+-------------------+-------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name              | emailId                 | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+-------------------+-------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  1 | Abinash Choudhury | achoudhury600@gmail.com | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |
+|  7 | Abhijit Patra     | abijit1998@gmail.com    | HR                 | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |
++----+-------------------+-------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+2 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+72.Write a query to display all the details of employee where designation have atleast 2 E's
+----------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where designation like '%e%e%';
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name                       | emailId                   | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |
+|  8 | BN Patra                   | bnpatra800@gmail.com      | Software Developer | 9861477800 |   24 | 1995-12-20 | 2018-06-24 |  45000 |     30 | A+ve       |
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10 | A+ve       |
+| 13 | Soumya Ranjan Pati         | soumyapati@gmail.com      | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30 | B+ve       |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+5 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+73.Write a query to select all the strings of length 5 the name starts with s and 2nd last character of string is L
+------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where name like 'S__L_';
+Empty set (0.00 sec)
+=================================================================================================================================================================
+
+74.Write a query to display all the record if the name of employee starts with A or starts with Z
+----------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where name like 'A%' or name like 'Z%';
++----+-------------------+-------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name              | emailId                 | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+-------------------+-------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  1 | Abinash Choudhury | achoudhury600@gmail.com | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |
+|  6 | Aditya Prasad Das | adzz6969@gmail.com      | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |
+|  7 | Abhijit Patra     | abijit1998@gmail.com    | HR                 | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |
++----+-------------------+-------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+3 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+75.Write a query to display all the record of employeein the name 3rd character should i and sixth charcter should be s
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where name like '__I__S%';
++----+-------------------+-------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name              | emailId                 | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+-------------------+-------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  1 | Abinash Choudhury | achoudhury600@gmail.com | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |
++----+-------------------+-------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+1 row in set (0.00 sec)
+
+=================================================================================================================================================================
+
+76.Write a query to display all the record of employee excluding whose name starts with S
+---------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info where name not like 'S%';
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name                       | emailId                   | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |
+|  2 | BS Karan Kumar             | bschhaka@gmail.com        | Analyst            | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |
+|  3 | Nikhil Ranjan Moharana     | nikee@gmail.com           | Testor             | 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40 | B+ve       |
+|  4 | Piyush Kumar Rout          | piyush.pkr@gmail.com      | Analyst            | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |
+|  5 | Bipllab Kumar Nath         | bipllabnath0101@gmail.com | HR                 | 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30 | O-ve       |
+|  6 | Aditya Prasad Das          | adzz6969@gmail.com        | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |
+|  7 | Abhijit Patra              | abijit1998@gmail.com      | HR                 | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |
+|  8 | BN Patra                   | bnpatra800@gmail.com      | Software Developer | 9861477800 |   24 | 1995-12-20 | 2018-06-24 |  45000 |     30 | A+ve       |
+|  9 | Dipanwita Sahoo            | dipanwita.sahoo@gmail.com | Clerk              | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |
+| 12 | Rohit kumar Mishra         | rohitmk@gmail.com         | Clerk              | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30 | B+ve       |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+11 rows in set (0.03 sec)
+=================================================================================================================================================================
+
+77.Write a query to  display the average, maximum, minimum, sum Salary and count rows of employee_info
+----------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select avg(Salary) as Average_Salary from employee_info;
++-----------------------+
+| Average_Salary |
++-----------------------+
+|          27400         |
++-----------------------+
+1 row in set (0.06 sec)
+--------------------------------------------------------------------------------------------------
+mysql> select max(Salary) as Maximum_Salary from employee_info;
++----------------+
+| Maximum_Salary |
++----------------+
+|          45000 |
++----------------+
+1 row in set (0.01 sec)
+--------------------------------------------------------------------------------------------------
+mysql> select min(Salary) as Minimum_Salary from employee_info;
++----------------+
+| Minimum_Salary |
++----------------+
+|          19000 |
++----------------+
+1 row in set (0.00 sec)
+----------------------------------------------------------------------------------------------------
+mysql> select sum(Salary) as SUM_all_Salary from employee_info;
++----------------+
+| SUM_all_Salary |
++----------------+
+|         411000 |
++----------------+
+1 row in set (0.00 sec)
+----------------------------------------------------------------------------------------------------
++------------+
+| No_of_ROWS |
++------------+
+|         15 |
++------------+
+1 row in set (0.00 sec)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select count(Salary) as No_of_ROWS, max(Salary) as Maximum_Salary, min(Salary) as Minimum_Salary, sum(Salary) as ALL_Salalry,avg(Salary) as Average_Salary from employee_info;
+
++--------------------+--------------------------+------------------------+-----------------+-----------------------+
+| No_of_ROWS | Maximum_Salary | Minimum_Salary | ALL_Salalry | Average_Salary |
++--------------------+--------------------------+------------------------+-----------------+-----------------------+
+|         15            |                      45000 |                   19000 |        411000 |                  27400 |
++--------------------+--------------------------+------------------------+-----------------+-----------------------+
+1 row in set (0.00 sec)
+
+=================================================================================================================================================================
+								      QUERIES*( Date-16-08-2019 )
+								      ========================		
+									
+78.Write a query to display number of employees had DOJ after 2016
+----------------------------------------------------------------------------------------------
+mysql> select count(*) from employee_info where DOJ>='2017-01-01';
++-------------+
+| count(*) |
++-------------+
+|           15 |
++-------------+
+1 row in set (0.00 sec)
+=================================================================================================================================================================
+
+79.Write a query to display average salary and the highest salary of department of 20,30,40 and 60
+---------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> select avg(Salary) as AverageSalary , max(Salary) as HighestSalary from employee_info where DeptId in(20,30,40,60);
++---------------------+---------------------+
+| AverageSalary | HighestSalary  |
++---------------------+---------------------+
+|         28300       |                45000 |
++---------------------+---------------------+
+1 row in set (0.05 sec)
+=================================================================================================================================================================
+
+80.Write a query to display date of first and last hired employee
+----------------------------------------------------------------------------------------
+
+mysql> select min(DOJ) as FirstHired, max(DOJ) as LastHired from employee_info;
++---------------+---------------+
+| FirstHired | LastHired  |
++---------------+---------------+
+|2018-02-27|2019-12-12|
++---------------+---------------+
+1 row in set (0.00 sec)
+=================================================================================================================================================================
+
+81.Write a query to display use of UPPER AND LOWER function
+--------------------------------------------------------------------------------------
+mysql> select upper(emailID) as UpperCaseEMAILID,lower(name) as lowercaseNAME from employee_info;
++---------------------------+----------------------------+
+| UpperCaseEMAILID          | lowercaseNAME              |
++---------------------------+----------------------------+
+| ACHOUDHURY600@GMAIL.COM   | abinash choudhury          |
+| BSCHHAKA@GMAIL.COM        | bs karan kumar             |
+| NIKEE@GMAIL.COM           | nikhil ranjan moharana     |
+| PIYUSH.PKR@GMAIL.COM      | piyush kumar rout          |
+| BIPLLABNATH0101@GMAIL.COM | bipllab kumar nath         |
+| ADZZ6969@GMAIL.COM        | aditya prasad das          |
+| ABIJIT1998@GMAIL.COM      | abhijit patra              |
+| BNPATRA800@GMAIL.COM      | bn patra                   |
+| DIPANWITA.SAHOO@GMAIL.COM | dipanwita sahoo            |
+| SAMBITMOHAPATRA@GMAIL.COM | sambit kumar ray mohapatra |
+| SUBHASHREE@GMAIL.COM      | subhashre subhasmita       |
+| ROHITMK@GMAIL.COM         | rohit kumar mishra         |
+| SOUMYAPATI@GMAIL.COM      | soumya ranjan pati         |
+| PRATIKMOHANTY@GMAIL.COM   | pratik priyadarshi mohanty |
+| SWATIPATRA@GMAIL.COM      | swati smita patra          |
+| NULL                      | somnath                    |
++---------------------------+----------------------------+
+16 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+82.Write a query to display use of length() function
+----------------------------------------------------------------------
+
+mysql> select length(name) as LenghtOfeachName from employee_info;
++----------------------------+
+| LenghtOfeachName|
++----------------------------+
+|                              17 |
+|                              14 |
+|               	22 |
+|               	17 |
+|               	18 |
+|               	17 |
+|               	13 |
+|                	  8 |
+|               	15 |
+|               	26 |
+|               	20 |
+|               	18 |
+|               	18 |
+|               	26 |
+|               	17 |
+|              	  7 |
++----------------------------+
+16 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+83.Write a query to merge name and salary
+-----------------------------------------------------------
+mysql> select concat(name , Salary) as NameAndSalary from employee_info;
++--------------------------------------------------------------+
+| NameAndSalary                   		|
++--------------------------------------------------------------+
+| Abinash Choudhury25000          		|
+| BS Karan Kumar35000             		|
+| Nikhil Ranjan Moharana30000     		|
+| Piyush Kumar Rout28000          		|
+| Bipllab Kumar Nath21000         		|
+| Aditya Prasad Das19000          		|
+| Abhijit Patra32000              		|
+| BN Patra45000                   			|
+| Dipanwita Sahoo25000            		|
+| Sambit Kumar Ray Mohapatra26000 	|
+| Subhashre Subhasmita27000       		|
+| Rohit kumar Mishra20000         		|
+| Soumya Ranjan Pati22000         		|
+| Pratik Priyadarshi Mohanty21000 		|
+| Swati Smita Patra35000          		|
+| NULL                            			|
++--------------------------------------------------------------+
+16 rows in set (0.01 sec)
+=================================================================================================================================================================
+
+84.Write a query to reverse name
+----------------------------------------------
++----------------------------+
+| ReverseName                |
++----------------------------+
+| yruhduohC hsanibA          |
+| ramuK naraK SB             |
+| anarahoM najnaR lihkiN     |
+| tuoR ramuK hsuyiP          |
+| htaN ramuK ballpiB         |
+| saD dasarP aytidA          |
+| artaP tijihbA              |
+| artaP NB                   |
+| oohaS atiwnapiD            |
+| artapahoM yaR ramuK tibmaS |
+| atimsahbuS erhsahbuS       |
+| arhsiM ramuk tihoR         |
+| itaP najnaR aymuoS         |
+| ytnahoM ihsradayirP kitarP |
+| artaP atimS itawS          |
+| htanmoS                    |
++----------------------------+
+=================================================================================================================================================================
+
+85.Write a query to display the name of the employees only 3 character
+--------------------------------------------------------------------------------------------------
+mysql> select substr(name, 1, 3) as NEWName from employee_info;
++----------------+
+| NEWName |
++----------------+
+| Abi	      |
+| BS               |
+| Nik             |
+| Piy             |
+| Bip             |
+| Adi             |
+| Abh            |
+| BN              |
+| Dip             |
+| Sam            |
+| Sub            |
+| Roh            |
+| Sou            |
+| Pra             |
+| Swa            |
+| Som            |
++----------------+
+16 rows in set (0.05 sec)
+
+=================================================================================================================================================================
+
+86.Write a query to display allthe record of employee whose name begin with consonant
+--------------------------------------------------------------------------------------------------------------------------
+
+mysql> select * from employee_info where substr(name,1,1) not in('a','e','i','o','u');
++----+--------------------------------------------+--------------------------------------------------+------------------------------------+------------------+------+----------------+-----------------+----------+-----------+-------------------+
+| id | name                       		| emailId                   		| designation        		| mobileNo    | Age | DOB           | DOJ             | Salary  | DeptId | BloodGroup |
++----+--------------------------------------------+--------------------------------------------------+------------------------------------+------------------+------+----------------+-----------------+-----------+----------+-------------------+
+|  2 | BS Karan Kumar             	| bschhaka@gmail.com        	| Analyst            		| 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20    | B+ve               |
+|  3 | Nikhil Ranjan Moharana     	| nikee@gmail.com           		| Testor             		| 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40    | B+ve               |
+|  4 | Piyush Kumar Rout          	| piyush.pkr@gmail.com      	| Analyst            		| 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20    | O+ve               |
+|  5 | Bipllab Kumar Nath         	| bipllabnath0101@gmail.com 	| HR                 		| 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30    | O-ve                |
+|  8 | BN Patra                   		| bnpatra800@gmail.com      	| Software Developer 	| 9861477800 |   24 | 1995-12-20 | 2018-06-24 |  45000 |     30    | A+ve               |
+|  9 | Dipanwita Sahoo            	| dipanwita.sahoo@gmail.com 	| Clerk              		| 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10    | O-ve                |
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com 	| Software Developer 	| 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10    | A+ve                |
+| 11 | Subhashre Subhasmita       	|subhashree@gmail.com      	| Testor             		| 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40    | B+ve                |
+| 12 | Rohit kumar Mishra         	| rohitmk@gmail.com         		| Clerk              		| 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10    | O+ve               |
+| 13 | Soumya Ranjan Pati         	| soumyapati@gmail.com      	| Software Developer 	| 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20    | B-ve                 |
+| 14 | Pratik Priyadarshi Mohanty 	| pratikmohanty@gmail.com   	| Software Developer 	| 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30    | B+ve                |
+| 15 | Swati Smita Patra          	| swatipatra@gmail.com      	| Clerk              		| 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20    | O+ve                |
+| 16 | Somnath                    		| NULL                      		| NULL               		| NULL            |   22 | 1997-06-23 | NULL           |   NULL |     40     | NULL               |
++----+--------------------------------------------+--------------------------------------------------+------------------------------------+------------------+------+----------------+-----------------+----------+-----------+-------------------+
+13 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+87.Write a query to search the position of a in name column 
+----------------------------------------------------------------------------------
+
+mysql> select instr(name,'a') from employee_info;
++------------------------+
+| instr(name,'a') 	|
++------------------------+
+|               1 	|
+|               5 	|
+|               9 	|
+|              11 	|
+|               6 	|
+|               1 	|
+|               1 	|
+|               5 	|
+|               4 	|
+|               2 	|
+|               5 	|
+|              10 	|
+|               6 	|
+|               3 	|
+|               3 	|
+|               5 	|
++------------------------+
+16 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+88.Write a query to replace where 'a' is present in the name with 'z'
+---------------------------------------------------------------------------------------------
+
+mysql> select replace(name,'a','z') from employee_info;
++-------------------------------------------------+
+| replace(name,'a','z')      		|
++-------------------------------------------------+
+| Abinzsh Choudhury          		|
+| BS Kzrzn Kumzr             		|
+| Nikhil Rznjzn Mohzrznz     		|
+| Piyush Kumzr Rout          		|
+| Bipllzb Kumzr Nzth         		|
+| Adityz Przszd Dzs          		|
+| Abhijit Pztrz              		|
+| BN Pztrz                   		|
+| Dipznwitz Szhoo            		|
+| Szmbit Kumzr Rzy Mohzpztrz 	|
+| Subhzshre Subhzsmitz       		|
+| Rohit kumzr Mishrz         		|
+| Soumyz Rznjzn Pzti         		|
+| Prztik Priyzdzrshi Mohznty 	|
+| Swzti Smitz Pztrz          		|
+| Somnzth                    		|
++--------------------------------------------------+
+16 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+89.Write a query to display number of employee who is working in dept number 20 and salary is equal to 20k
+------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select count(*) from employee_info where DeptId=20 and Salary=15000;
++-------------+
+| count(*) |
++-------------+
+|        0      |
++-------------+
+1 row in set (0.00 sec)
+
+=================================================================================================================================================================
+
+90.Write a query to display thedepartment number, highest salary of employee in each department
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> select DeptId,max(Salary) from employee_info group by DeptId;
++--------+--------------+
+|DeptId|max(Salary)|
++--------+--------------+
+|     10 |       32000 |
+|     20 |       35000 |
+|     30 |       45000 |
+|     40 |       30000 |
++--------+--------------+
+4 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+91.Write a query to display number of software developer working in each department
+-----------------------------------------------------------------------------------------------------------------------
+
+mysql> select DeptId,count(*) from employee_info where designation='Software Developer' group by DeptId ;
++-----------+-------------+
+| DeptId | count(*) |
++-----------+-------------+
+|         10 |             2 |
+|         20 |             1 |
+|         30 |             2 |
++-----------+-------------+
+3 rows in set (0.02 sec)
+=================================================================================================================================================================
+
+92.Write a query to display numberof employee hired on each date
+--------------------------------------------------------------------------------------------
+mysql> select DOJ,count(*) from employee_info group by DOJ ;
++----------------+----------+
+| DOJ             |count(*)|
++----------------+----------+
+| NULL           |        1 |
+| 2018-02-27 |        1 |
+| 2018-06-24 |        1 |
+| 2018-12-22 |        1 |
+| 2019-01-24 |        1 |
+| 2019-02-27 |        1 |
+| 2019-04-22 |        1 |
+| 2019-04-25 |        1 |
+| 2019-05-07 |        1 |
+| 2019-05-24 |        1 |
+| 2019-05-31 |        1 |
+| 2019-06-24 |        2 |
+| 2019-07-24 |        2 |
+| 2019-12-12 |        1 |
++----------------+----------+
+14 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+93.Write a query to display minimum salary in each designation
+---------------------------------------------------------------------------------------
+mysql> select designation,min(Salary) as MinimumSalary from employee_info group by designation ;
++--------------------+---------------+
+| designation       | MinimumSalary |
++--------------------+---------------+
+| NULL               |          NULL |
+| Analyst            |         28000 |
+| Clerk              |         20000 |
+| HR                 |         21000 |
+| Salesman           |         19000 |
+| Software developer |         21000 |
+| Testor             |         27000 |
++--------------------+---------------+
+7 rows in set (0.02 sec)
+=================================================================================================================================================================
+
+94.Write a query to display the department number which has atleast 4working employees
+-----------------------------------------------------------------------------------------------------------------------------
+mysql> select DeptId,count(DeptId) from employee_info group by DeptId having count(*)>4;
++-----------+---------------------+
+| DeptId | count(DeptId) |
++-----------+---------------------+
+|        10 |                        5 |
+|        20 |                        5 |
++-----------+---------------------+
+2 rows in set (0.00 sec)
+
+
+=================================================================================================================================================================
+
+95.Write a query to display department number which have total salary greater than 90000
+------------------------------------------------------------------------------------------------------------------------------
+
+mysql> select DeptId,sum(Salary) as TotalSalary from employee_info group by DeptId having sum(Salary)>90000;
++-----------+----------------+
+| DeptId | TotalSalary |
++-----------+-----------------+
+|        10 |         128000 |
+|        20 |        139000 |
++-----------+-----------------+
+2 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+96.Write a query to display deptnumber and avg salary of all the departments whose avg salary is greater than 26000 excluding the employee whose name begins with 'S'.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> select DeptId,avg(Salary) as AverageSalary from employee_info where name not like 'S%' group by DeptId having avg(Salary)>26000 ;
++-----------+-------------------------+
+| DeptId | AverageSalary      |
++-----------+-------------------------+
+|     20 | 27333.333333333332 |
+|     30 	|                    29000 |
+|     40 	|                    30000 |
++-----------+-------------------------+
+3 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+97.Write a query to display all the results of employee_info table salary should be arranged in descending order
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info order by Salary desc;
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name                       | emailId                   | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+|  8 | BN Patra                   | bnpatra800@gmail.com      | Software Developer | 9861477800 |   24 | 1995-12-20 | 2018-06-24 |  45000 |     30 | A+ve       |
+|  2 | BS Karan Kumar             | bschhaka@gmail.com        | Analyst            | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |
+| 15 | Swati Smita Patra          | swatipatra@gmail.com      | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |
+|  7 | Abhijit Patra              | abijit1998@gmail.com      | HR                 | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |
+|  3 | Nikhil Ranjan Moharana     | nikee@gmail.com           | Testor             | 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40 | B+ve       |
+|  4 | Piyush Kumar Rout          | piyush.pkr@gmail.com      | Analyst            | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |
+| 11 | Subhashre Subhasmita       | subhashree@gmail.com      | Testor             | 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40 | B+ve       |
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10 | A+ve       |
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |
+|  9 | Dipanwita Sahoo            | dipanwita.sahoo@gmail.com | Clerk              | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |
+| 13 | Soumya Ranjan Pati         | soumyapati@gmail.com      | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |
+|  5 | Bipllab Kumar Nath         | bipllabnath0101@gmail.com | HR                 | 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30 | O-ve       |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30 | B+ve       |
+| 12 | Rohit kumar Mishra         | rohitmk@gmail.com         | Clerk              | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       |
+|  6 | Aditya Prasad Das          | adzz6969@gmail.com        | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |
+| 16 | Somnath                    | NULL                      | NULL               | NULL       |   22 | 1997-06-23 | NULL       |   NULL |     40 | NULL       |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+16 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+98.Write a query to display all the results of employee_info table salary should be arranged in ascending order
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info order by Salary;
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| id | name                       | emailId                   | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+| 16 | Somnath                    | NULL                      | NULL               | NULL       |   22 | 1997-06-23 | NULL       |   NULL |     40 | NULL       |
+|  6 | Aditya Prasad Das          | adzz6969@gmail.com        | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |
+| 12 | Rohit kumar Mishra         | rohitmk@gmail.com         | Clerk              | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       |
+|  5 | Bipllab Kumar Nath         | bipllabnath0101@gmail.com | HR                 | 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30 | O-ve       |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30 | B+ve       |
+| 13 | Soumya Ranjan Pati         | soumyapati@gmail.com      | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |
+|  9 | Dipanwita Sahoo            | dipanwita.sahoo@gmail.com | Clerk              | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10 | A+ve       |
+| 11 | Subhashre Subhasmita       | subhashree@gmail.com      | Testor             | 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40 | B+ve       |
+|  4 | Piyush Kumar Rout          | piyush.pkr@gmail.com      | Analyst            | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |
+|  3 | Nikhil Ranjan Moharana     | nikee@gmail.com           | Testor             | 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40 | B+ve       |
+|  7 | Abhijit Patra              | abijit1998@gmail.com      | HR                 | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |
+|  2 | BS Karan Kumar             | bschhaka@gmail.com        | Analyst            | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |
+| 15 | Swati Smita Patra          | swatipatra@gmail.com      | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |
+|  8 | BN Patra                   | bnpatra800@gmail.com      | Software Developer | 9861477800 |   24 | 1995-12-20 | 2018-06-24 |  45000 |     30 | A+ve       |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+
+16 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+99.Write a query to display employee name, designation ,DOJ for all employee who are working in either any of the department.  The departments are 10,20,60,50 and sort the records in
+     descending order of their salary.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> select name,designation,DOJ,DeptId,Salary from employee_info where DeptId in(10,20,50,60) order by Salary desc;
++----------------------------+--------------------+------------+--------+--------+
+| name                       | designation        | DOJ        | DeptId | Salary |
++----------------------------+--------------------+------------+--------+--------+
+| BS Karan Kumar             | Analyst            | 2019-07-24 |     20 |  35000 |
+| Swati Smita Patra          | Clerk              | 2018-02-27 |     20 |  35000 |
+| Abhijit Patra              | HR                 | 2019-05-31 |     10 |  32000 |
+| Piyush Kumar Rout          | Analyst            | 2019-06-24 |     20 |  28000 |
+| Sambit Kumar Ray Mohapatra | Software Developer | 2019-05-24 |     10 |  26000 |
+| Abinash Choudhury          | Software developer | 2019-07-24 |     10 |  25000 |
+| Dipanwita Sahoo            | Clerk              | 2019-01-24 |     10 |  25000 |
+| Soumya Ranjan Pati         | Software Developer | 2018-12-22 |     20 |  22000 |
+| Rohit kumar Mishra         | Clerk              | 2019-02-27 |     10 |  20000 |
+| Aditya Prasad Das          | Salesman           | 2019-12-12 |     20 |  19000 |
++----------------------------+--------------------+------------+--------+--------+
+10 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+100. Write a query to display deptID along with no.of employee in it.
+----------------------------------------------------------------------------------------------
+mysql> select DeptId,count(DeptId) from employee_info group by DeptId;
++--------+---------------+
+| DeptId | count(DeptId) |
++--------+---------------+
+|     10 |             5 |
+|     20 |             5 |
+|     30 |             3 |
+|     40 |             3 |
++--------+---------------+
+4 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+101.Write a query to display allthe detailof employee whose designation is testor and software developer.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+=================================================================================================================================================================
+
+102.Write a query to display the employee name who is working for research department. 
+----------------------------------------------------------------------------------------------------------------------------
+
+mysql> select name from employee_info where DeptId = (select DeptId from department_info where dname='Research');
++----------------------------+
+| name                         |
++----------------------------+
+| BS Karan Kumar       |
+| Piyush Kumar Rout  |
+| Aditya Prasad Das    |
+| Soumya Ranjan Pati |
+| Swati Smita Patra     |
++-----------------------------+
+5 rows in set (0.00 sec)
+
+=================================================================================================================================================================
+
+103.Write a query to display the employee who is working in location which has at least 1 A character in it's name.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> select name from employee_info where DeptId in (select DeptId from department_info where location like '%a%' );
++--------------------------------------------------+
+| name                       		|
++--------------------------------------------------+
+| Abinash Choudhury          		|
+| Nikhil Ranjan Moharana     	|
+| Abhijit Patra              		|
+| Dipanwita Sahoo            		|
+| Sambit Kumar Ray Mohapatra 	|
+| Subhashre Subhasmita       	|
+| Rohit kumar Mishra         		|
+| Somnath                    		|
++--------------------------------------------------+
+8 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+104.Write a query to obtain second maximum salary from the employee_info table
+-----------------------------------------------------------------------------------------------------------------
+mysql> select max(Salary) from employee_info where Salary < (SELECT max(Salary) from employee_info);
+mysql> select max(Salary) as 2ndMaximumSalary from employee_info where Salary < (SELECT max(Salary) from employee_info);
++-----------------------------+
+| 2ndMaximumSalary |
++-----------------------------+
+|                         35000 |
++-----------------------------+
+1 row in set (0.00 sec)
+
+=================================================================================================================================================================
+
+105.Write a query to obtain 3rd maximum salary from the employee_info table 
+------------------------------------------------------------------------------------------------------------
+
+mysql> select max(Salary) as 3rdMaximumSalary from employee_info where Salary < (select max(Salary) from employee_info where Salary < (SELECT max(Salary) from employee_info));
++----------------------------+
+| 3rdMaximumSalary |
++----------------------------+
+|                        32000 |
++----------------------------+
+1 row in set (0.01 sec)
+=================================================================================================================================================================
+
+106.Write a query to display all the records using cartesian join or cross join
+--------------------------------------------------------------------------------------------------------
+mysql> select * from employee_info cross join department_info;
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+--------+-------------+-----------+
+| id | name                       | emailId                   | designation        | mobileNo   | Age  | DOB        | DOJ        | Salary | DeptId | BloodGroup | DeptId | dname       | location  |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+--------+-------------+-----------+
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |     10 | Accounting  | Bangalore |
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |     20 | Research    | Pune      |
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |     30 | Sales       | NewDelhi  |
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |     40 | Operation   | Chennai   |
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |     50 | Admin       | Mumbai    |
+|  1 | Abinash Choudhury          | achoudhury600@gmail.com   | Software developer | 9437848217 |   22 | 1997-06-04 | 2019-07-24 |  25000 |     10 | O+ve       |     60 | Maintenance | GOA       |
+|  2 | BS Karan Kumar             | bschhaka@gmail.com        | Analyst            | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |     10 | Accounting  | Bangalore |
+|  2 | BS Karan Kumar             | bschhaka@gmail.com        | Analyst            | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |     20 | Research    | Pune      |
+|  2 | BS Karan Kumar             | bschhaka@gmail.com        | Analyst            | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |     30 | Sales       | NewDelhi  |
+|  2 | BS Karan Kumar             | bschhaka@gmail.com        | Analyst            | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |     40 | Operation   | Chennai   |
+|  2 | BS Karan Kumar             | bschhaka@gmail.com        | Analyst            | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |     50 | Admin       | Mumbai    |
+|  2 | BS Karan Kumar             | bschhaka@gmail.com        | Analyst            | 9438870022 |   22 | 1997-05-10 | 2019-07-24 |  35000 |     20 | B+ve       |     60 | Maintenance | GOA       |
+|  3 | Nikhil Ranjan Moharana     | nikee@gmail.com           | Testor             | 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40 | B+ve       |     10 | Accounting  | Bangalore |
+|  3 | Nikhil Ranjan Moharana     | nikee@gmail.com           | Testor             | 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40 | B+ve       |     20 | Research    | Pune      |
+|  3 | Nikhil Ranjan Moharana     | nikee@gmail.com           | Testor             | 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40 | B+ve       |     30 | Sales       | NewDelhi  |
+|  3 | Nikhil Ranjan Moharana     | nikee@gmail.com           | Testor             | 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40 | B+ve       |     40 | Operation   | Chennai   |
+|  3 | Nikhil Ranjan Moharana     | nikee@gmail.com           | Testor             | 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40 | B+ve       |     50 | Admin       | Mumbai    |
+|  3 | Nikhil Ranjan Moharana     | nikee@gmail.com           | Testor             | 9861358142 |   22 | 1997-12-20 | 2019-06-24 |  30000 |     40 | B+ve       |     60 | Maintenance | GOA       |
+|  4 | Piyush Kumar Rout          | piyush.pkr@gmail.com      | Analyst            | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |     10 | Accounting  | Bangalore |
+|  4 | Piyush Kumar Rout          | piyush.pkr@gmail.com      | Analyst            | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |     20 | Research    | Pune      |
+|  4 | Piyush Kumar Rout          | piyush.pkr@gmail.com      | Analyst            | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |     30 | Sales       | NewDelhi  |
+|  4 | Piyush Kumar Rout          | piyush.pkr@gmail.com      | Analyst            | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |     40 | Operation   | Chennai   |
+|  4 | Piyush Kumar Rout          | piyush.pkr@gmail.com      | Analyst            | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |     50 | Admin       | Mumbai    |
+|  4 | Piyush Kumar Rout          | piyush.pkr@gmail.com      | Analyst            | 9437996969 |   22 | 1997-04-20 | 2019-06-24 |  28000 |     20 | O+ve       |     60 | Maintenance | GOA       |
+|  5 | Bipllab Kumar Nath         | bipllabnath0101@gmail.com | HR                 | 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30 | O-ve       |     10 | Accounting  | Bangalore |
+|  5 | Bipllab Kumar Nath         | bipllabnath0101@gmail.com | HR                 | 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30 | O-ve       |     20 | Research    | Pune      |
+|  5 | Bipllab Kumar Nath         | bipllabnath0101@gmail.com | HR                 | 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30 | O-ve       |     30 | Sales       | NewDelhi  |
+|  5 | Bipllab Kumar Nath         | bipllabnath0101@gmail.com | HR                 | 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30 | O-ve       |     40 | Operation   | Chennai   |
+|  5 | Bipllab Kumar Nath         | bipllabnath0101@gmail.com | HR                 | 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30 | O-ve       |     50 | Admin       | Mumbai    |
+|  5 | Bipllab Kumar Nath         | bipllabnath0101@gmail.com | HR                 | 8249624842 |   21 | 1998-01-02 | 2019-04-25 |  21000 |     30 | O-ve       |     60 | Maintenance | GOA       |
+|  6 | Aditya Prasad Das          | adzz6969@gmail.com        | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |     10 | Accounting  | Bangalore |
+|  6 | Aditya Prasad Das          | adzz6969@gmail.com        | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |     20 | Research    | Pune      |
+|  6 | Aditya Prasad Das          | adzz6969@gmail.com        | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |     30 | Sales       | NewDelhi  |
+|  6 | Aditya Prasad Das          | adzz6969@gmail.com        | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |     40 | Operation   | Chennai   |
+|  6 | Aditya Prasad Das          | adzz6969@gmail.com        | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |     50 | Admin       | Mumbai    |
+|  6 | Aditya Prasad Das          | adzz6969@gmail.com        | Salesman           | 9861477536 |   20 | 1999-11-05 | 2019-12-12 |  19000 |     20 | A-ve       |     60 | Maintenance | GOA       |
+|  7 | Abhijit Patra              | abijit1998@gmail.com      | HR                 | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |     10 | Accounting  | Bangalore |
+|  7 | Abhijit Patra              | abijit1998@gmail.com      | HR                 | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |     20 | Research    | Pune      |
+|  7 | Abhijit Patra              | abijit1998@gmail.com      | HR                 | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |     30 | Sales       | NewDelhi  |
+|  7 | Abhijit Patra              | abijit1998@gmail.com      | HR                 | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |     40 | Operation   | Chennai   |
+|  7 | Abhijit Patra              | abijit1998@gmail.com      | HR                 | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |     50 | Admin       | Mumbai    |
+|  7 | Abhijit Patra              | abijit1998@gmail.com      | HR                 | 9845725870 |   21 | 1998-10-25 | 2019-05-31 |  32000 |     10 | O+ve       |     60 | Maintenance | GOA       |
+|  8 | BN Patra                   | bnpatra800@gmail.com      | Software Developer | 9861477800 |   24 | 1995-12-20 | 2018-06-24 |  45000 |     30 | A+ve       |     10 | Accounting  | Bangalore |
+|  8 | BN Patra                   | bnpatra800@gmail.com      | Software Developer | 9861477800 |   24 | 1995-12-20 | 2018-06-24 |  45000 |     30 | A+ve       |     20 | Research    | Pune      |
+|  8 | BN Patra                   | bnpatra800@gmail.com      | Software Developer | 9861477800 |   24 | 1995-12-20 | 2018-06-24 |  45000 |     30 | A+ve       |     30 | Sales       | NewDelhi  |
+|  8 | BN Patra                   | bnpatra800@gmail.com      | Software Developer | 9861477800 |   24 | 1995-12-20 | 2018-06-24 |  45000 |     30 | A+ve       |     40 | Operation   | Chennai   |
+|  8 | BN Patra                   | bnpatra800@gmail.com      | Software Developer | 9861477800 |   24 | 1995-12-20 | 2018-06-24 |  45000 |     30 | A+ve       |     50 | Admin       | Mumbai    |
+|  8 | BN Patra                   | bnpatra800@gmail.com      | Software Developer | 9861477800 |   24 | 1995-12-20 | 2018-06-24 |  45000 |     30 | A+ve       |     60 | Maintenance | GOA       |
+|  9 | Dipanwita Sahoo            | dipanwita.sahoo@gmail.com | Clerk              | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |     10 | Accounting  | Bangalore |
+|  9 | Dipanwita Sahoo            | dipanwita.sahoo@gmail.com | Clerk              | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |     20 | Research    | Pune      |
+|  9 | Dipanwita Sahoo            | dipanwita.sahoo@gmail.com | Clerk              | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |     30 | Sales       | NewDelhi  |
+|  9 | Dipanwita Sahoo            | dipanwita.sahoo@gmail.com | Clerk              | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |     40 | Operation   | Chennai   |
+|  9 | Dipanwita Sahoo            | dipanwita.sahoo@gmail.com | Clerk              | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |     50 | Admin       | Mumbai    |
+|  9 | Dipanwita Sahoo            | dipanwita.sahoo@gmail.com | Clerk              | 9493615547 |   22 | 1997-09-01 | 2019-01-24 |  25000 |     10 | O-ve       |     60 | Maintenance | GOA       |
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10 | A+ve       |     10 | Accounting  | Bangalore |
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10 | A+ve       |     20 | Research    | Pune      |
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10 | A+ve       |     30 | Sales       | NewDelhi  |
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10 | A+ve       |     40 | Operation   | Chennai   |
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10 | A+ve       |     50 | Admin       | Mumbai    |
+| 10 | Sambit Kumar Ray Mohapatra | sambitmohapatra@gmail.com | Software Developer | 9861554780 |   22 | 1997-06-07 | 2019-05-24 |  26000 |     10 | A+ve       |     60 | Maintenance | GOA       |
+| 11 | Subhashre Subhasmita       | subhashree@gmail.com      | Testor             | 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40 | B+ve       |     10 | Accounting  | Bangalore |
+| 11 | Subhashre Subhasmita       | subhashree@gmail.com      | Testor             | 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40 | B+ve       |     20 | Research    | Pune      |
+| 11 | Subhashre Subhasmita       | subhashree@gmail.com      | Testor             | 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40 | B+ve       |     30 | Sales       | NewDelhi  |
+| 11 | Subhashre Subhasmita       | subhashree@gmail.com      | Testor             | 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40 | B+ve       |     40 | Operation   | Chennai   |
+| 11 | Subhashre Subhasmita       | subhashree@gmail.com      | Testor             | 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40 | B+ve       |     50 | Admin       | Mumbai    |
+| 11 | Subhashre Subhasmita       | subhashree@gmail.com      | Testor             | 7001554780 |   22 | 1997-06-05 | 2019-05-07 |  27000 |     40 | B+ve       |     60 | Maintenance | GOA       |
+| 12 | Rohit kumar Mishra         | rohitmk@gmail.com         | Clerk              | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       |     10 | Accounting  | Bangalore |
+| 12 | Rohit kumar Mishra         | rohitmk@gmail.com         | Clerk              | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       |     20 | Research    | Pune      |
+| 12 | Rohit kumar Mishra         | rohitmk@gmail.com         | Clerk              | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       |     30 | Sales       | NewDelhi  |
+| 12 | Rohit kumar Mishra         | rohitmk@gmail.com         | Clerk              | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       |     40 | Operation   | Chennai   |
+| 12 | Rohit kumar Mishra         | rohitmk@gmail.com         | Clerk              | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       |     50 | Admin       | Mumbai    |
+| 12 | Rohit kumar Mishra         | rohitmk@gmail.com         | Clerk              | 8249557654 |   22 | 1997-03-03 | 2019-02-27 |  20000 |     10 | O+ve       |     60 | Maintenance | GOA       |
+| 13 | Soumya Ranjan Pati         | soumyapati@gmail.com      | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |     10 | Accounting  | Bangalore |
+| 13 | Soumya Ranjan Pati         | soumyapati@gmail.com      | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |     20 | Research    | Pune      |
+| 13 | Soumya Ranjan Pati         | soumyapati@gmail.com      | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |     30 | Sales       | NewDelhi  |
+| 13 | Soumya Ranjan Pati         | soumyapati@gmail.com      | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |     40 | Operation   | Chennai   |
+| 13 | Soumya Ranjan Pati         | soumyapati@gmail.com      | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |     50 | Admin       | Mumbai    |
+| 13 | Soumya Ranjan Pati         | soumyapati@gmail.com      | Software Developer | 9845700870 |   21 | 1998-11-05 | 2018-12-22 |  22000 |     20 | B-ve       |     60 | Maintenance | GOA       |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30 | B+ve       |     10 | Accounting  | Bangalore |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30 | B+ve       |     20 | Research    | Pune      |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30 | B+ve       |     30 | Sales       | NewDelhi  |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30 | B+ve       |     40 | Operation   | Chennai   |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30 | B+ve       |     50 | Admin       | Mumbai    |
+| 14 | Pratik Priyadarshi Mohanty | pratikmohanty@gmail.com   | Software Developer | 9865500870 |   22 | 1997-12-05 | 2019-04-22 |  21000 |     30 | B+ve       |     60 | Maintenance | GOA       |
+| 15 | Swati Smita Patra          | swatipatra@gmail.com      | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |     10 | Accounting  | Bangalore |
+| 15 | Swati Smita Patra          | swatipatra@gmail.com      | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |     20 | Research    | Pune      |
+| 15 | Swati Smita Patra          | swatipatra@gmail.com      | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |     30 | Sales       | NewDelhi  |
+| 15 | Swati Smita Patra          | swatipatra@gmail.com      | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |     40 | Operation   | Chennai   |
+| 15 | Swati Smita Patra          | swatipatra@gmail.com      | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |     50 | Admin       | Mumbai    |
+| 15 | Swati Smita Patra          | swatipatra@gmail.com      | Clerk              | 8249557688 |   22 | 1997-01-03 | 2018-02-27 |  35000 |     20 | O+ve       |     60 | Maintenance | GOA       |
+| 16 | Somnath                    | NULL                      | NULL               | NULL       |   22 | 1997-06-23 | NULL       |   NULL |     40 | NULL       |     10 | Accounting  | Bangalore |
+| 16 | Somnath                    | NULL                      | NULL               | NULL       |   22 | 1997-06-23 | NULL       |   NULL |     40 | NULL       |     20 | Research    | Pune      |
+| 16 | Somnath                    | NULL                      | NULL               | NULL       |   22 | 1997-06-23 | NULL       |   NULL |     40 | NULL       |     30 | Sales       | NewDelhi  |
+| 16 | Somnath                    | NULL                      | NULL               | NULL       |   22 | 1997-06-23 | NULL       |   NULL |     40 | NULL       |     40 | Operation   | Chennai   |
+| 16 | Somnath                    | NULL                      | NULL               | NULL       |   22 | 1997-06-23 | NULL       |   NULL |     40 | NULL       |     50 | Admin       | Mumbai    |
+| 16 | Somnath                    | NULL                      | NULL               | NULL       |   22 | 1997-06-23 | NULL       |   NULL |     40 | NULL       |     60 | Maintenance | GOA       |
++----+----------------------------+---------------------------+--------------------+------------+------+------------+------------+--------+--------+------------+--------+-------------+-----------+
+96 rows in set (0.00 sec)
+=================================================================================================================================================================
+
+107.Write a query for left outer join
+---------------------------------------------------------------
+SELECT * from  trainee left outer join  employee_info on trainee.Age=employee_info.Age;
+=================================================================================================================================================================
+
+108.Write a query for inner join
+---------------------------------------------------------------
+SELECT * from  trainee inner join  employee_info on trainee.Age=employee_info.Age;
+=================================================================================================================================================================
+
+109.Write a query for right outer join
+---------------------------------------------------------------
+SELECT * from  trainee right outer join  employee_info on trainee.Age=employee_info.Age;
+=================================================================================================================================================================
+
+110.Write a query for full outer join
+---------------------------------------------------------------
+SELECT * from  trainee left outer join  employee_info on trainee.Age=employee_info.Age union SELECT * from  trainee right outer join  employee_info on trainee.Age=employee_info.Age;
+=================================================================================================================================================================
+
+112.Write a query for VIEW
+---------------------------------------------------------------
+CREATE  VIEW `ust`.`Designation` 
+    AS
+     SELECT * FROM employee_info where designation= 'Testor';
+
+
+SELECT * from Designation;
+
+
+
+
+

@@ -1,0 +1,6 @@
+<div class="col-md-3 float-left card card-body mt-5" style="margin-left: 7%"
+    *ngFor="let product of firebase.details">
+    <img src="{{product.img_url}}" alt="" class="card-img-top">
+    <h2 class="text-center">{{product.title}}</h2>
+    <h3 class="text-center">{{product.description}}</h3>
+</div>

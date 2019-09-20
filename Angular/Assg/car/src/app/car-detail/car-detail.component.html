@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <input type="search" class="form-control" [(ngModel)]='search'>
+    <br>
+    <br>
+    <table class="table table-bordered table-hover">
+        <thead class="text-center" style="background-color: tomato;color: white">
+            <th>Index</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Year of Release</th>
+            <th>Cost</th>
+            <th>Units Sold</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </thead>
+        <tbody class="text-center" style="background-color: rgb(202, 196, 255)">
+            <tr *ngFor="let user of firebaseService.details; index as i ">
+                <td>{{i+1}}</td>
+                <td>{{user.brand | titlecase}}</td>
+                <td>{{user.model}}</td>
+                <td>{{user.yor | date }}</td>
+                <td>{{user.cost |  currency : 'INR'}}</td>
+                <td>{{user.sold}}</td>
+                <td>
+                    <button class="btn btn-warning" (click)='updateUser(user)'>Update</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)='deleteUser(user)'>Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,10 @@
+body{
+    background-color: palegoldenrod;
+}
+button{
+    border: 1px solid black;
+    width: 5%;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+}

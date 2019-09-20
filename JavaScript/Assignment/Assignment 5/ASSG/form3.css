@@ -1,0 +1,22 @@
+body{
+    margin-right: 45%;
+    margin-left: 2%;
+    margin-top: 2%;
+    
+}
+form{
+    border: 1px solid black;
+    background-color: palegoldenrod;
+    padding-left: 2%;
+    border-radius: 2%;
+    
+}
+button{
+    border: 1px solid black;
+    width: 7%;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 2%;
+    margin-left: 15%;
+}

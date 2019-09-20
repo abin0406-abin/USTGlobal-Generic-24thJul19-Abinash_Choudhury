@@ -1,0 +1,59 @@
+package com.dev.collections;
+
+import java.util.HashMap;
+
+import com.dev.encapsulation.Dog;
+
+public class C2 {
+
+	public static void main(String[] args) {
+		HashMap<String, Dog> hm = new HashMap<String, Dog>();
+		
+		Dog d = new Dog();
+		d.setAge(3);
+		d.setBreed("German Sheferd");
+		d.setColor("Black and Brown");
+		d.setName("Gabbar");
+		
+		Dog d1 = new Dog();
+		d1.setAge(2);
+		d1.setBreed("Dalmation");
+		d1.setColor("Black and White");
+		d1.setName("Ronnie");
+		
+		Dog d2 = new Dog();
+		d2.setAge(1);
+		d2.setBreed("Dalmation");
+		d2.setColor("Black and White");
+		d2.setName("Hunter");
+		
+		hm.put("1", d); // Getting
+		hm.put("2", d1);
+		hm.put("3", d2);
+		System.out.println(hm);
+		System.out.println();
+		
+//		for (Dog dog : hm) {           // It will show error as map interface doesn't extending collection interface. 
+//			System.out.println(dog);
+//		}
+		
+		Dog b = hm.put("1", d1); // Updating
+		System.out.println(b);
+		System.out.println();
+
+		Dog f = hm.remove("2");//Deleting
+		System.out.println("Removed Object: "+f);
+		System.out.println();
+
+		System.out.println("After removing an object"+hm);
+		System.out.println();
+		
+		System.out.println("Output of containsKey(1): "+hm.containsKey("1"));
+		System.out.println("Output of containsKey(6): "+hm.containsKey("6"));
+		System.out.println();
+		
+		System.out.println("Output of containsValue(d1): "+hm.containsValue(d1));
+//		System.out.println("Output of containsValue(d6): "+hm.containsValue(d6)); //It will show error as d6 is not present
+	}
+
+}

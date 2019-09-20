@@ -1,0 +1,18 @@
+package com.dev.searching;
+
+public class Searching {
+	public static void main(String[] args) {
+		int [] arr = {5,65,55,5688};
+		System.out.println(numberSearch(arr, 55));
+	}
+	
+	public static boolean numberSearch(int[] arr, int value) {
+		
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == value) {
+				return true;
+			}
+		} 
+		return false;
+	}
+}

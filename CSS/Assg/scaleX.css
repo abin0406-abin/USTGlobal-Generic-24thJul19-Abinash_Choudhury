@@ -1,0 +1,10 @@
+div{
+    margin-left: 30%;
+    margin-top: 20%;
+    width: 150px;
+    height: 30px;
+    background-color: palegreen;
+    transform: scaleX(5);
+    /*transform: scaleY(5);*/
+
+}

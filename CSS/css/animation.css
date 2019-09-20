@@ -1,0 +1,50 @@
+ul{
+    margin-top: 150px;
+    margin-left: 100px;
+}
+li{
+    display: inline-block;/*to show the bullets in one line */
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-left: 30px;
+    animation: glow 1s infinite linear;
+    /*Inorder to give theanimation style, animation time, number of time animation, way of the animation. e.g.,linear, vertical, horizontal*/
+}
+/*All the rules for animation written in this @keyframes rule.*/
+@keyframes glow{
+    0%, 25%, 75%, 100%{
+        transform: scale(0.5, 0.5);
+    }
+    50%{
+        transform: scale(2, 2);
+    }
+    /*When 1st li reaches to 50% then next li starts glowing*/
+}
+li:nth-child(1){
+    background-color: blue;
+    animation-delay: 0.1s;
+    box-shadow: 0 0 15px rgb(248, 0, 41);
+}
+li:nth-child(2){
+    background-color: yellow;
+    animation-delay: 0.2s;
+    box-shadow: 0 0 15px blue;
+}li:nth-child(3){
+    background-color: blue;
+    animation-delay: 0.3s;
+    box-shadow: 0 0 15px rgb(248, 0, 41);
+}li:nth-child(4){
+    background-color: yellow;
+    animation-delay: 0.4s;
+    box-shadow: 0 0 15px blue;
+}li:nth-child(5){
+    background-color: blue;
+    animation-delay: 0.5s;
+    box-shadow: 0 0 15px rgb(248, 0, 41);
+}li:nth-child(6){
+    background-color: yellow;
+    animation-delay: 0.6s;
+    box-shadow: 0 0 15px blue;
+}

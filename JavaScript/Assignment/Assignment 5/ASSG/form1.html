@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form1</title>
+    <link rel="stylesheet" href="form1.css">
+</head>
+<body>
+    <form action="validator.html">
+        <div>
+            <br><label for="fname">First Name</label><br>
+            <input type="text" name="fname" onkeyup="validateForm1()" required>
+        </div><br>
+        <div>
+            <label for="lname">Last Name</label><br>
+            <input type="text" name="lname"  onkeyup="validateForm2()"required>
+        </div><br>
+        <div>
+            <label for="cname" >Company Name </label><br>
+            <input type="text" name="cname" onkeyup="validateForm3()" required>
+        </div><br>
+        <div>
+            <label for="empid">Emp ID</label><br>
+            <input type="number" name="empid" onkeyup="validateForm4()" required>
+        </div><br>
+        <div>
+            <label for="doj">Date of joining</label><br>
+            <input type="date" name="doj" onkeyup="validateForm5()" required>
+        </div><br>
+        <div >
+            <label >Gender</label><br>
+            <input type="radio" name="gend" >Male
+            <input type="radio" name="gend" >Female
+            <input type="radio" name="gend" >Others
+        </div><br>
+        <div>
+            <label for="skill">Skills</label><br>
+            <input type="checkbox" name="skill" >Java <br>
+            <input type="checkbox" name="skill" >SQL <br>
+            <input type="checkbox" name="skill" >J2EE <br>
+            <input type="checkbox" name="skill" >Hibernate          
+        </div><br>
+        <div>
+            <input type="submit" value="Submit" name="submit" disabled>
+            <input type="reset" value="Reset" >
+        </div>  
+    </form>
+    <script src="form1.js"></script>
+</body>
+</html>

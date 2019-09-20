@@ -1,0 +1,58 @@
+/* Element Selector */
+body{
+    width: 300px;/*To give border size */
+
+    /* Both the way we can use  */
+    margin: 200px 0 0 500px; 
+    /* margin-top: 100px;
+    margin-left: 600px; */
+    background-image: url('C:/Users/Abinash/Desktop/UST Global/CSS/Image/DSC_0155.JPG');/*Background Image */
+    background-size: cover;
+}
+form{
+    border: 2px solid blue;/*Togive border*/
+
+    border-radius: 20px;/* to make the border corners curve */
+
+    font-family: cursive;/*TO change Font style*/
+
+    text-align: center;/*To text Align*/
+
+    font-size: 20px;/*TO adjust the font size*/
+
+    box-shadow: 0 0 100px blue;
+               /* OR */
+    /* box-shadow: 10px 10px blueviolet; */
+
+    color: rebeccapurple;
+    background-image: url('C:/Users/Abinash/Desktop/UST Global/CSS/Image/giphy.gif');/*FORM BACKGROUND*/
+    background-size: cover;
+}
+input[type="Text"],input[type="Password"]{
+    /*To give the text box size*/
+    height: 30px;
+    width: 250px;
+    border: 2px  solid black;
+    border-radius: 20px;
+    margin: 5px;
+    text-align:center; 
+}
+input[type="Text"]:focus,input[type="Password"]:focus{
+    outline: none;
+    background-color: rgb(255, 251, 188);
+}
+button{
+    background-color: blue;
+    border: none;
+    padding: 5px;
+    width: 120px;
+    margin-bottom: 6px; 
+    border-radius: 10px;
+    color: aliceblue;
+}
+button:hover{
+    background-color: green;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 0 10px red;
+}

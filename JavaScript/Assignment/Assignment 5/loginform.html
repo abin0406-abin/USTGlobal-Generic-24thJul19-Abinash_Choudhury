@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Forms</title>
+    <style>
+        body{
+            margin-left: 25%;
+            margin-top: 10%;
+            margin-right: 70%
+        }
+        input{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <legend>
+        <fieldset>
+            <form action="welcome.html" onsubmit="return validation()" method="POST" name="abc">
+                <div id="UN">
+                    <label for="" name="text">Username</label>
+                    <input onkeyup="validateForm()" name="uname" type="text" required>
+                    <div id="Username Error"></div>
+                </div>
+                <div id="PW">
+                    <label for="" name="pwd">Password</label>
+                    <input onkeyup="validateForm1()" name="pwd" type="password" required>
+                    <div id="Password Error"></div>
+                </div><br>
+                <div>
+                    <input type="submit" name="loginSubmit" value="LOGIN" >
+                </div>
+            </form>
+        </fieldset>
+    </legend>
+    <script src="loginform.js"></script>
+</body>
+</html>

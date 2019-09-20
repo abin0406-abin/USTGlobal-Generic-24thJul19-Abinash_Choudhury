@@ -1,0 +1,18 @@
+<table class="table table-bordered table-hove col-md-8 offset-2 mt-2" style="background-color:rgb(252, 250, 248); " >
+    <thead class="bg-dark" style="color: aliceblue">
+        <tr class="hoverable">
+            <th style="text-align: center;font-family: Verdana">ID</th>
+            <th style="text-align: center;font-family: Verdana">UserID</th>
+            <th style="text-align: center;font-family: Verdana">TITLE</th>
+            <th style="text-align: center;font-family: Verdana">BODY</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="hoverable" *ngFor="let scnd of second">
+            <td style="background-color: rgb(214, 214, 214);color: rgb(13, 0, 194);font-weight: bold" >{{scnd.id}}</td>
+            <td>{{scnd.userId}}</td>
+            <td style="background-color: rgb(214, 214, 214)" >{{scnd.title | uppercase}}</td>
+            <td>{{scnd.body}}</td>
+        </tr>
+    </tbody>
+</table>

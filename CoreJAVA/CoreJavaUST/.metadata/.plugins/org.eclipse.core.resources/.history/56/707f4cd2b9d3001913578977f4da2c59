@@ -1,0 +1,12 @@
+package com.dev.threads;
+
+public class MainSync {
+
+	public static void main(String[] args) {
+		SyncPrinter sp = new SyncPrinter();
+		Thread4 t4 = new Thread4(p);
+		t4.start();
+
+	}
+
+}

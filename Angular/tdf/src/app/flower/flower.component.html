@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="col-md-8 mt-2">
+        <form #flower='ngForm' (ngSubmit)='postData(flower)'>
+            <input type="hidden" name="id" #id='ngModel' ([ngModel]='firebase.flower.id' )>
+            <input type="text" name="name" #name='ngModel' class="form-control text-center"
+                ([ngModel])='firebase.flower.name' id="">
+            <input type="url" name="img" #img='ngModel' class="form-control text-center"
+                ([ngModel])='firebase.flower.img' id="">
+        </form>
+    </div>
+</div>

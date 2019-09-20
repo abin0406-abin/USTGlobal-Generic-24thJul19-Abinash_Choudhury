@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LOGIN</title>
+</head>
+<body>
+        <legend>
+                <fieldset>
+                    <form action="validator.html" method="get">
+                        <div>
+                            <label for="" name="text">Username</label>
+                        </div>                
+                        <div>
+                            <input onkeyup="validateForm()" name="uname" type="text" required>
+                        </div>
+                        <div>
+                            <label for="" name="pwd">Password</label>
+                        </div>
+                        <div>
+                            <input onkeyup="validateForm()" name="pwd" type="password" required>
+                        </div><br>
+                        <div>
+                            <input type="submit" name="loginSubmit" value="LOGIN" disabled>   
+                        </div>
+                        <div>
+                            <input type="checkbox" onclick="myfunc()" id="ch1">
+                        </div>
+                    </form>
+                </fieldset>
+            </legend>
+            <script src="loginform.js"></script>
+</body>
+</html>

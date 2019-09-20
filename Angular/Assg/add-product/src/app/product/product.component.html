@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="col-md-8 mt-4 offset-2 card card-body">
+        <h1 class="text-center" style="background-color: coral;font-family: Haettenschweiler">Enter the Product
+            Details</h1>
+        <form #productForm='ngForm' (ngSubmit)='postProduct(productForm)'>
+            <input type="hidden" name="id" #id='ngModel' [(ngModel)]='firebase.selectedproduct.id'>
+            <input type="url" name="img_url" placeholder="Image Link" class="form-control text-center"
+                #img_url='ngModel' [(ngModel)]=firebase.selectedproduct.img_url
+                style="background-color: skyblue;color: black;font-family: cursive"><br>
+            <input type="text" name="title" placeholder="Product Name" class="form-control text-center"
+                #img_url='ngModel' [(ngModel)]=firebase.selectedproduct.title
+                style="background-color: skyblue;color: black;font-family: cursive"><br>
+            <input type="text" name="description" placeholder="Product Details" class="form-control text-center"
+                #img_url='ngModel' [(ngModel)]=firebase.selectedproduct.description
+                style="background-color: skyblue;color: black;font-family: cursive"><br>
+            <button class="btn btn-success offset-5">SUBMIT</button>
+        </form>
+    </div>
+</div>

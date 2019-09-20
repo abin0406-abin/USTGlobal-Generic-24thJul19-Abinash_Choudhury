@@ -1,0 +1,8 @@
+<div class="col-md-6 offset-3">
+    <div class="card card-body col-md-12 mt-2" *ngFor="let business of businesshNews">
+        <img src="{{business.urlToImage}}" alt="" class="card-img-top">
+        <h3>{{title}}</h3>
+        <p>{{business.description}}</p>
+        <a href="{{business.url}}" class="btn btn-primary">Click here for more info...</a>
+    </div>
+</div>

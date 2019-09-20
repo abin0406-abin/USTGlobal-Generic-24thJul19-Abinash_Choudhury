@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="col-md-8 card card-body offset-2 mt-5">
+        <form action="" method="post" role="form" #loginForm='ngForm' (ngSubmit)='show(loginForm)'>
+            <legend class="text-center">LOGIN</legend>
+            <div class="form-group">
+                <label for="uname">UserName</label>
+                <input type="text" name="uname" class="form-control" #uname='ngModel' ngModel required minlength="4">
+                <div *ngIf='uname.touched && uname.invalid'>
+                    <div class="alert alert-danger" *ngIf='uname.errors.required'>
+                        This field must have some value.
+                    </div>
+                    <div class="alert alert-danger" *ngIf='uname.errors.minlength'>
+                        User Name must be atleast of 4 letters.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password</label>
+                <input type="password" name="pwd" class="form-control" #pwd='ngModel' ngModel required pattern="ust123">
+                <div class="alert alert-danger" *ngIf='pwd.touched && pwd.invalid'>
+                    <div class="alert alert-danger" *ngIf='pwd.errors.required'>
+                        Password field must not be blank.
+                    </div>
+                    <div class="alert alert-danger" *ngIf='pwd.errors.pattern'>
+                        Password not matching!!!
+                    </div>
+                </div>
+            </div>
+            <div class="btn btn-group offset-4">
+                <button type="submit" class="btn btn-outline-primary">Submit</button>
+                <button type="reset" class="btn btn-outline-danger">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

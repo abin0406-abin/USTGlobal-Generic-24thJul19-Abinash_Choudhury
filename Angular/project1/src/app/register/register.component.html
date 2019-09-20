@@ -1,0 +1,43 @@
+<div class="container">
+    <!-- container class give a container field tothe whole body -->
+    <div class="col-md-8 mt-4 offset-2 card card-body">
+        <!-- this card takes 8 column of the grid -->
+        <form action="" method="post" #registerForm='ngForm' (ngSubmit)='printForm(registerForm)'>
+            <!-- Name of form -->
+            <legend class="text-center" style="font-family: cursive">Registration</legend>
+            <!-- Username Field -->
+            <div class="form-group">
+                <label for="uname">User Name</label>
+                <input type="text" name="uname" class="form-control" id="0" #uname='ngModel' ngModel required
+                    minlength="5">
+                <div class="alert alert-danger" *ngIf='uname.touched && uname.invalid'>
+                    <div *ngIf='uname.errors.required'>
+                        Username cannot be blank.
+                    </div>
+                    <div *ngIf='uname.errors.minlength'>
+                        Username must be of 5 character.
+                    </div>
+                </div>
+            </div>
+            <!-- Password Field -->
+            <div class="form-group">
+                <label for="pwd">Passwprd</label>
+                <input type="password" name="pwd" class="form-control" id="1" #pwd='ngModel' ngModel required
+                    minlength="6">
+                <div class="alert alert-danger" *ngIf='pwd.touched && pwd.invalid'>
+                    <div *ngIf='pwd.errors.required'>
+                        Password cannot be blank.
+                    </div>
+                    <div *ngIf='pwd.errors.minlength'>
+                        Password must be of 6 character.
+                    </div>
+                </div>
+            </div>
+            <!-- buttons -->
+            <div class="btn-group offset-4">
+                <button type="submit" class="btn btn-outline-primary">Submit</button>
+                <button type="reset" class="btn btn-outline-warning">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>

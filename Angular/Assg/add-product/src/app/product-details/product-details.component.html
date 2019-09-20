@@ -1,0 +1,13 @@
+<div class="col-md-12 mt-5">
+    <div class="col-md-4 float-left" *ngFor="let product of firebase.details ">
+        <div class="card card-body">
+            <img src="{{product.img_url}}" alt="" class="card-img-top">
+            <h2 class="text-center">{{product.title}}</h2>
+            <h3 class="text-center">{{product.description}}</h3>
+            <button class="btn" style="background-color: rgb(255, 240, 155);color: black;"
+                (click)='updateproduct(product)'>Update</button><br>
+            <button class="btn" style="background-color: rgb(255, 155, 155);color: black;"
+                (click)='deleteproduct(product)'>Delete</button>
+        </div>
+    </div>
+</div>

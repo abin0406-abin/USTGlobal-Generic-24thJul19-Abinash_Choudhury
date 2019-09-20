@@ -1,0 +1,12 @@
+table,th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 30%;
+    font-family: 'Courier New';
+    margin-left: 400px;
+    margin-top: 200px;
+}
+th, td{
+    padding: 10px;
+    text-align: center;
+}
